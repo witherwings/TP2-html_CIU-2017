@@ -3,13 +3,17 @@
 <head>
 	<title>Carmen San Diego</title>
     <link rel="stylesheet" type="text/css" href="../css/style.css">
+
+    <!-- BOOTSTRAP -->
+      <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+      <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
 </head>
 <body>
-    <p class="big">Estas en: <b>Egipto</b>, Antes: <b>Argentina -> Brasil -> Ecuador</b></p>
-    <table>
+    <h3>Estas en: <b>Egipto</b>, Antes: <b>Argentina -> Brasil -> Ecuador</b></h3>
+    <table class="table table-bordered">
         <tr>
             <td class="mainTd"><!-- SECCION VIAJES -->
-            	<table>
+            	<table class="table table-bordered">
             		<tr>
             			<td>
             				<p class="big">
@@ -20,29 +24,29 @@
             		</tr>
             		<tr>
             			<td>
-            				<table>
+            				<table class="table table-bordered">
 	            				<form action="">
 	            					<tr>
-	            						<th>Posibilidades</th>
+	            						<th><h3>Posibilidades</h3></th>
 	            					</tr>
 	            					<tr>
 	            						<td> 
-	            							<input type="radio" name="posibilidad" value="Israel">Israel
+	            							<input type="radio" name="posibilidad" value="Israel">   Israel
 	            						</td>
 	            					</tr>
 	            					<tr>
 	            						<td> 
-	            							<input type="radio" name="posibilidad" value="Ecuador">Ecuador
+	            							<input type="radio" name="posibilidad" value="Ecuador">   Ecuador
 	            						</td>
 	            					</tr>
 	            					<tr>
 	            						<td> 
-	            							<input type="radio" name="posibilidad" value="Cuba">Cuba
+	            							<input type="radio" name="posibilidad" value="Cuba">   Cuba
 	            						</td>
 	            					</tr>
 	            					<tr>
 	            						<td> 
-	            							<input type="radio" name="posibilidad" value="Canada">Canada
+	            							<input type="radio" name="posibilidad" value="Canada">   Canada
 	            						</td>
 	            					</tr>
 	            				</form>
@@ -50,7 +54,7 @@
             			</td>
             		</tr>
             		<tr>
-            			<th>Destinos fallidos</th>
+            			<th><h3>Destinos fallidos</h3></th>
             		</tr>
             		<tr>
             			<td>Israel</td>
@@ -61,39 +65,39 @@
             	</table>
             </td>
             <td class="mainTd"><!-- SECCION INVESTIGAR -->
-            	<table>
+            	<table class="table table-bordered">
             		<tr><td>
             			<h2>Investigar</h2>
             		</td></tr>
             		<tr><td>
-            			<table>
+            			<table class="table table-bordered">
             				<tr>
-            					<td>IMG</td><td>Embajada</td>
+            					<td>IMG</td><td><h3>Embajada</h3></td>
             				</tr>
             				<tr>
-            					<td>IMG</td><td>Club</td>
+            					<td>IMG</td><td><h3>Club</h3></td>
             				</tr>
             				<tr>
-            					<td>IMG</td><td>Biblioteca	</td>
+            					<td>IMG</td><td><h3>Biblioteca</h3>	</td>
             				</tr>
             			</table>
             		</td></tr>
             	</table>
             </td>
             <td class="mainTd"><!-- SECCION VISITANDO Y ORDEN DE ARRESTO -->
-            	<table>
-            		<tr>
+            	<table class="table table-bordered">
+            		<tr><div class="table table-bordered">
             			<h2>Visitando</h2>
             			<h3>Club</h3>
             			<p>Vi alguien sospechoso</p>
             			<p>Quiso cambiar su dinero a Euros</p>
             			<p>Me impresiono su auto convertible</p>
-            		</tr>
-            		<tr>
+            		</div></tr>
+            		<tr><div class="table table-bordered">
             			<h3>Emitir orden de arresto para:</h3>
             			<p>Emitida contra Igor</p>
-            		</tr>
-            		<tr>
+            		</div></tr>
+            		<tr><div class="table table-bordered">
             			<h3>Pedir orden contra:</h3>
             			<select>
 							  <option value="Carmen">Carmen</option>
@@ -101,7 +105,7 @@
 						</select>
 						<br />
 						<button type="button">Pedir orden</button>
-            		</tr>
+            		</div></tr>
             	</table>
             </td>
         </tr>
