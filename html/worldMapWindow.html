@@ -11,8 +11,9 @@
       <!-- BOOTSTRAP -->
       <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
       <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
+
       <!-- My CSS -->
-      <link rel="stylesheet" href="css/my-styles.css">
+      <link rel="stylesheet" href="../css/my-styles.css">
 
       <script src="node_modules/angular/angular.min.js"></script>
   </head>
@@ -21,7 +22,7 @@
 
     <div class="row">
         <div class="col-md-3">
-            <img src="img/mundo-destinos.jpg" class="left-block" alt="Responsive image">
+            <img src="../img/mundo-destinos.jpg" class="left-block" alt="Responsive image">
         </div>
         <div class="col-md-9">
           <h1>
@@ -51,49 +52,108 @@
                 </tr>
               </tbody>
             </table>
+            <button type="submit" class="btn btn-primary" ng-click="">
+              Nuevo
+            </button>
           </div>
           <div class="col-md-5">
 
             <div class="panel panel-default">
                 <div class="panel-body">
-                  
                   <form>
                     <div class="form-group">
                       <label for="inputNombre">Nombre</label>
                       <input type="text" class="form-control" id="inputNombre" placeholder="Nombre">
                     </div>
-                  </form>
-                  <table class="table table-bordered">
-                    <thead>
-                      <tr>
-                        <th>Caracteristicas</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>
-                          <!-- mostrar lo que vamos agregando -->
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  <div class="input-group">
-                    <input type="text" class="form-control" placeholder="caracteristica">
-                    <div class="input-group-btn">
-                      <button type="submit" class="btn btn-primary">
-                        <span class="glyphicon glyphicon-plus"></span>
-                      </button>
+                    <table class="table table-bordered">
+                      <thead>
+                        <tr>
+                          <th>Caracteristicas</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>
+                            <!-- mostrar lo que vamos agregando -->
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <div class="input-group">
+                      <input type="text" class="form-control" placeholder="caracteristica">
+                      <div class="input-group-btn">
+                        <button type="submit" class="btn btn-primary">
+                          <span class="glyphicon glyphicon-plus"></span>
+                        </button>
+                      </div>
                     </div>
-                  </div>
+                    <table class="table table-bordered">
+                      <thead>
+                        <tr>
+                          <th>Conexiones</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>
+                            <!-- mostrar lo que vamos agregando -->
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <div class="input-group">
+                      <select class="form-control">
+                        <option>Argentina</option>
+                        <option>Estados Unidos</option>
+                        <option>Mexico</option>
+                        <option>Francia</option>
+                      </select>
+                      <div class="input-group-btn">
+                        <button type="submit" class="btn btn-primary">
+                          <span class="glyphicon glyphicon-plus"></span>
+                        </button>
+                      </div>
+                    </div>
+                    <table class="table table-bordered">
+                      <thead>
+                        <tr>
+                          <th>Lugares de Interes</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>
+                            <!-- mostrar lo que vamos agregando -->
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <div class="input-group">
+                      <select class="form-control">
+                        <option>Banco</option>
+                        <option>Biblioteca</option>
+                        <option>Club</option>
+                        <option>Embajada</option>
+                      </select>
+                      <div class="input-group-btn">
+                        <button type="submit" class="btn btn-primary">
+                          <span class="glyphicon glyphicon-plus"></span>
+                        </button>
+                      </div>
+                    </div>
+                  </form>
                 </div>
             </div>
+            <button type="submit" class="btn btn-primary" ng-click="">
+              Aceptar
+            </button>
 
           </div>
         </div>
     </div>
 
   <!-- JS -->
-  <script src="js/paisesApp.js"></script>
+  <script src="../js/paisesApp.js"></script>
   </body>
 
 </html>
