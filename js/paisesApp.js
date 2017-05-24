@@ -6,52 +6,94 @@ app.controller('PaisesCtrl', function () {
 
 	this.paises = [{
 		"nombre": "Argentina",
-		"conexiones": ["Estados Unidos", "Mexico"],
-		"lugares": [
-			{
-				"nombre": "Embajada"
-				"occupant": {
-					"clue": "una pista"
-				}
-			}
+		"id" : 1,
+		"caracteristicas" : [
+			"tomar mates",
+			"bandera blanca y celeste"
 		],
-		"id" : 1
-	}, {
+		"lugares" : [
+			"Embajada",
+			"Banco",
+			"Club"
+		],
+		"conexiones" : [
+			{
+				"nombre": "Estados Unidos",
+				"id" : 2,
+			},
+			{
+				"nombre": "Mexico",
+				"id" : 3
+			}
+		]
+	}, 
+	{
 		"nombre": "Estados Unidos",
-		"conexiones": ["Francia", "Mexico"],
-		"lugares": [
-			{
-				"nombre": "Libreria"
-				"occupant": {
-					"clue": "otra pista"
-				}
-			}
+		"id" : 2,
+		"caracteristicas" : [
+			"casablanca",
+			"bandera con barras y estrellas"
 		],
-		"id" : 2
-	}, {
+		"lugares" : [
+			"Embajada",
+			"Banco",
+			"Biblioteca"
+		],
+		"conexiones" : [
+			{
+				"nombre": "Mexico",
+				"id" : 3,
+			},
+			{
+				"nombre": "Francia",
+				"id" : 4
+			}
+		]
+	}, 
+	{
 		"nombre": "Mexico",
-		"conexiones": ["Francia", "Argentina"],
-		"lugares": [
-			{
-				"nombre": "Club"
-				"occupant": {
-					"clue": "una pista mas del monton"
-				}
-			}
+		"id" : 3,
+		"caracteristicas" : [
+			"tacos",
+			"mariachis"
 		],
-		"id" : 3
-	}, {
+		"lugares" : [
+			"Banco",
+			"Biblioteca",
+			"Club"
+		],
+		"conexiones" : [
+			{
+				"nombre": "Argentina",
+				"id" : 1,
+			},
+			{
+				"nombre": "Estados Unidos",
+				"id" : 2
+			}
+		]
+	},
+	 {
 		"nombre": "Francia",
-		"conexiones": ["Estados Unidos", "Argentina"],
-		"lugares": [
-			{
-				"nombre": "Banco"
-				"occupant": {
-					"clue": "alguna pista (de tu hermana)"
-				}
-			}
+		"id" : 4,
+		"caracteristicas" : [
+			"torre Eifel",
+			"bandera blanca y celeste"
 		],
-		"id" : 4
+		"lugares" : [
+			"Embajada",
+			"Banco",
+			"Club"
+		],
+		"conexiones" : [
+			{
+				"nombre": "Estados Unidos",
+				"id" : 2,
+			},
+			{
+				"nombre": "Mexico",
+				"id" : 3
+			}
+		]
 	}];
-	
 });
