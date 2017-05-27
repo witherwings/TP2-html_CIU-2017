@@ -1,10 +1,128 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" ng-app="villanosApp">
 <head>
 	<title>Expedientes</title>
+
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Barrio" type="text/css" >
+	<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+      <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
+      <link rel="stylesheet" href="../css/my-styles.css">
+
+      <script src="node_modules/angular/angular.min.js"></script>
+
+      <script src="../js/villanosApp.js"></script>
 </head>
 
-<body>
+<body ng-controller="VillanosCtrl as villanos">
+<div class="row">
+	<div class="col-md-3">
+		<img src="../img/files.jpg" style="width: 100%; height: 100%;" />
+	</div>
+	<div class="col-md-9">
+		<h1>
+            <strong>
+              <p>Expedientes</p>
+            </strong>
+          </h1>
+          <div class="col-md-4"> <!-- PARTE VILLANOS LISTA -->
+          	<table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Villanos</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+              	<tr ng-repeat="villano in villanos.villanos">
+              		<td>{{villano.nombre}}</td>
+              		<td>
+                    <button type="submit" class="btn btn-default" ng-click="">
+                      <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                    <button type="submit" class="btn btn-default" ng-click="">
+                      <span class="glyphicon glyphicon-pencil"></span>
+                    </button>
+                  </td>
+              	</tr>
+              </tbody>
+             </table>
+             <button type="submit" class="btn btn-primary" ng-click="">
+              Nuevo
+            </button>
+          </div>
+           <div class="col-md-5"><!-- PARTE EDITAR VILLANOS -->
+           			<form>
+           		<div class="panel panel-default">
+           			<div class="panel-body">
+           				<div class="form-group">
+                    		<label for="inputNombre">Nombre</label>
+                    		<input type="text" class="form-control" id="inputNombre" placeholder="Nombre">
+                    	</div>
+                    	<div class="form">
+                    		<label for="inputNombre">Sexo</label><br />
+                    		<input type="radio" name="gender" value="masculino"> Masculino
+  							<input type="radio" name="gender" value="femenino"> Femenino
+                    	</div>
+                    	<br />
+                    	<div class="form">
+                    		<table class="table table-bordered">
+                    			<thead>
+		                        <tr>
+		                          <th>Senhas</th>
+		                        </tr>
+		                      </thead>
+		                      <tbody>
+		                      		<tr>
+			                          <td>
+			                            <!-- mostrar lo que vamos agregando -->
+			                          </td>
+			                        </tr>
+		                      </tbody>
+                    		</table>
+                    		<div class="input-group">
+		                      <input type="text" class="form-control" placeholder="sehna">
+		                      <div class="input-group-btn">
+		                        <button type="submit" class="btn btn-primary">
+		                          <span class="glyphicon glyphicon-plus"></span>
+		                        </button>
+		                      </div>
+		                    </div>
+                    	</div>
+                    	<br />
+                    	<div class="form">
+                    		<table class="table table-bordered">
+                    			<thead>
+		                        <tr>
+		                          <th>Hobbies</th>
+		                        </tr>
+		                      </thead>
+		                      <tbody>
+		                      		<tr>
+			                          <td>
+			                            <!-- mostrar lo que vamos agregando -->
+			                          </td>
+			                        </tr>
+		                      </tbody>
+                    		</table>
+                    		<div class="input-group">
+		                      <input type="text" class="form-control" placeholder="hobbie">
+		                      <div class="input-group-btn">
+		                        <button type="submit" class="btn btn-primary">
+		                          <span class="glyphicon glyphicon-plus"></span>
+		                        </button>
+		                      </div>
+		                    </div>
+                    	</div>
+           			</div>
+           		</div>
+           			 <button type="submit" class="btn btn-primary" ng-click="">
+		              Aceptar
+		            </button>
+           			</form>
+           </div>
+	</div>
+</div>
+<!-- CON TABLAS 
 	<table>
 	<tr valign="bottom">
 		<td><img src="../img/sandiego.jpg" style="width:200px;height:200px;"></td>
@@ -106,5 +224,6 @@
 			<td align="center"> <button type="button" style="height:30px;width:100px">Nuevo</button></td>
 			<td align="center"> <button type="button" style="height:30px;width:100px">Aceptar</button></td>
 		</tr>
+-->
 </body>
 </html>
