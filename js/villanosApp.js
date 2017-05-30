@@ -69,7 +69,7 @@ app.controller('VillanosCtrl', function () {
 		"senhas" : [
 			"tiene olor a aceite de autos",
 			"siempre lleva un cuchillo en su cinturon",
-			"es alto y flaco",
+			"es alto y flaco"
 		],
 		"hobbies" : [
 			"le gusta tallar arboles",
