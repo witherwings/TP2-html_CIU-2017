@@ -52,11 +52,7 @@ app.controller('VillanosCtrl', function () {
 		"nombre": "Betty Chiars",
 		"id" : 4,
 		"genero": "Femenino",
-<<<<<<< HEAD
-		"señas" : [
-=======
 		"senhas" : [
->>>>>>> ee78c9142161bfaebcc7142664f4d7bae201e6af
 			"tiene pelo rubio",
 			"le gusta el deporte",
 			"es atractiva"
@@ -70,11 +66,7 @@ app.controller('VillanosCtrl', function () {
 		"nombre": "Vic La Mancha",
 		"id" : 5,
 		"genero": "Masculino",
-<<<<<<< HEAD
-		"señas" : [
-=======
 		"senhas" : [
->>>>>>> ee78c9142161bfaebcc7142664f4d7bae201e6af
 			"tiene olor a aceite de autos",
 			"siempre lleva un cuchillo en su cinturon",
 			"es alto y flaco"
