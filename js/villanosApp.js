@@ -7,7 +7,7 @@ app.controller('VillanosCtrl', function () {
 	this.villanos = [{
 		"nombre": "Carmen Sandiego",
 		"id" : 1,
-		"genero": "Femenino"
+		"genero": "Femenino",
 		"señas" : [
 			"tiene pelo rojo",
 			"maneja un convertible",
@@ -22,7 +22,7 @@ app.controller('VillanosCtrl', function () {
 	{
 		"nombre": "Igor Igorovich",
 		"id" : 2,
-		"genero": "Masculino"
+		"genero": "Masculino",
 		"señas" : [
 			"tiene pelo rubio",
 			"maneja limosina",
@@ -37,7 +37,7 @@ app.controller('VillanosCtrl', function () {
 	{
 		"nombre": "Al Capone",
 		"id" : 3,
-		"genero": "Masculino"
+		"genero": "Masculino",
 		"señas" : [
 			"tiene cicatriz en el lado izquierdo de la cara",
 			"maneja un auto negro",
@@ -51,7 +51,7 @@ app.controller('VillanosCtrl', function () {
 	{
 		"nombre": "Betty Chiars",
 		"id" : 4,
-		"genero": "Femenino"
+		"genero": "Femenino",
 		"señas" : [
 			"tiene pelo rubio",
 			"le gusta el deporte",
@@ -65,7 +65,7 @@ app.controller('VillanosCtrl', function () {
 	{
 		"nombre": "Vic La Mancha",
 		"id" : 5,
-		"genero": "Masculino"
+		"genero": "Masculino",
 		"señas" : [
 			"tiene olor a aceite de autos",
 			"siempre lleva un cuchillo en su cinturon",
