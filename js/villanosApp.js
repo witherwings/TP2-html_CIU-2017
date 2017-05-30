@@ -8,7 +8,7 @@ app.controller('VillanosCtrl', function () {
 		"nombre": "Carmen Sandiego",
 		"id" : 1,
 		"genero": "Femenino",
-		"señas" : [
+		"senhas" : [
 			"tiene pelo rojo",
 			"maneja un convertible",
 			"posee un collar de rubies",
@@ -23,7 +23,7 @@ app.controller('VillanosCtrl', function () {
 		"nombre": "Igor Igorovich",
 		"id" : 2,
 		"genero": "Masculino",
-		"señas" : [
+		"senhas" : [
 			"tiene pelo rubio",
 			"maneja limosina",
 			"tiene un tatuaje en el brazo",
@@ -38,7 +38,7 @@ app.controller('VillanosCtrl', function () {
 		"nombre": "Al Capone",
 		"id" : 3,
 		"genero": "Masculino",
-		"señas" : [
+		"senhas" : [
 			"tiene cicatriz en el lado izquierdo de la cara",
 			"maneja un auto negro",
 			"tiene secuaces"
@@ -52,7 +52,11 @@ app.controller('VillanosCtrl', function () {
 		"nombre": "Betty Chiars",
 		"id" : 4,
 		"genero": "Femenino",
+<<<<<<< HEAD
 		"señas" : [
+=======
+		"senhas" : [
+>>>>>>> ee78c9142161bfaebcc7142664f4d7bae201e6af
 			"tiene pelo rubio",
 			"le gusta el deporte",
 			"es atractiva"
@@ -66,10 +70,14 @@ app.controller('VillanosCtrl', function () {
 		"nombre": "Vic La Mancha",
 		"id" : 5,
 		"genero": "Masculino",
+<<<<<<< HEAD
 		"señas" : [
+=======
+		"senhas" : [
+>>>>>>> ee78c9142161bfaebcc7142664f4d7bae201e6af
 			"tiene olor a aceite de autos",
 			"siempre lleva un cuchillo en su cinturon",
-			"es alto y flaco",
+			"es alto y flaco"
 		],
 		"hobbies" : [
 			"le gusta tallar arboles",
