@@ -1,7 +1,17 @@
-app.controller('PaisesCtrl', function ($resource, $timeout, cfpLoadingBar, Paises) {
-	'use strict';
 
-//var app = angular.module('paisesApp', []);
+
+var app = angular.module('paisesApp', ['ngAnimate', 'ngResource', 'chieffancypants.loadingBar']);
+
+app.factory('Paises', function($resource) {
+    return $resource('/paises/:id', {'id': '@id'}, {
+    	'query': { method: 'GET', isArray: true},
+        'update': { method: 'PUT' },
+        'save': { method: 'POST' },
+        'remove': { method:'DELETE' }
+    });
+});
+
+app.controller('PaisesCtrl', function ($resource, $timeout, cfpLoadingBar, Paises) {
 
 	var self = this;
 
@@ -16,7 +26,7 @@ app.controller('PaisesCtrl', function ($resource, $timeout, cfpLoadingBar, Paise
             self.countries = data;
         }, errorHandler);
     };
-    
+   
     this.updateList();
 
     // AGREGAR
