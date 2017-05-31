@@ -1,4 +1,4 @@
-app.controller('PaisesCtrl', function ($resource, $timeout, cfpLoadingBar, Paises) {
+app.controller('PaisesCtrl', function (Paises) {
 	'use strict';
 
 //var app = angular.module('paisesApp', []);
@@ -13,7 +13,7 @@ app.controller('PaisesCtrl', function ($resource, $timeout, cfpLoadingBar, Paise
 
 	this.updateList = function() {
         Paises.query(function(data) {
-            self.countries = data;
+            self.paises = data;
         }, errorHandler);
     };
     
