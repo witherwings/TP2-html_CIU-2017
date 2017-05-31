@@ -1,8 +1,6 @@
 app.controller('PaisesCtrl', function (Paises) {
 	'use strict';
 
-//var app = angular.module('paisesApp', []);
-
 	var self = this;
 
 	self.paises = [];
