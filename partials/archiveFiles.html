@@ -16,12 +16,12 @@
               	<tr ng-repeat="villano in villanos.villanos">
               		<td>{{villano.name}}</td>
               		<td>
-                    <button type="submit" class="btn btn-default" ng-click="">
-                      <span class="glyphicon glyphicon-remove"></span>
-                    </button>
-                    <button type="submit" class="btn btn-default" ng-click="">
+              		<a ui-sref="archiveFilesEditing({id: villano.id})" class="btn btn-default" ng-click="">
                       <span class="glyphicon glyphicon-pencil"></span>
-                    </button>
+                    </a>
+                    <a class="btn btn-default" ng-click="">
+                      <span class="glyphicon glyphicon-remove"></span>
+                    </a>
                   </td>
               	</tr>
               </tbody>

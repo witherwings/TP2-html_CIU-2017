@@ -15,6 +15,12 @@ carmenSandiegoApp.config(function ($stateProvider, $urlRouterProvider) {
       templateUrl: "partials/archiveFiles.html",
       controller: "VillanosCtrl as villanos"
     })
+
+    .state('archiveFilesEditing', {
+      url: "/archiveFiles/:id",
+      templateUrl: "partials/archiveFiles.html",
+      controller: "VillanosCtrl as villanos"
+    })
     
     .state('worldMap', {
       url: "/worldMap",
@@ -22,9 +28,11 @@ carmenSandiegoApp.config(function ($stateProvider, $urlRouterProvider) {
       controller: "PaisesCtrl as paises"
     })
 
-    .state('worldMapEdit', {
+    .state('worldMapEditing', {
       url: "/worldMap/:id",
       templateUrl: "partials/worldMap.html",
       controller: "PaisesCtrl as paises"
     })
+
+
 });

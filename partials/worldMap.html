@@ -17,12 +17,16 @@
                 <tr data-ng-repeat="pais in paises.paises" class="animate-repeat">
                   <td>{{pais.name}}</td>
                   <td>
+<<<<<<< Updated upstream
                     <button type="button" class="btn btn-default" onclick="pepe()" data-ng-click="paises.verDetalle(pais)">
+=======
+                    <a ui-sref="worldMapEditing({id: pais.id})" class="btn btn-default" ng-click="">
+>>>>>>> Stashed changes
                       <span class="glyphicon glyphicon-pencil"></span>
-                    </button>
-                    <button type="submit" class="btn btn-default" ng-click="">
+                    </a>
+                    <a class="btn btn-default" ng-click="">
                       <span class="glyphicon glyphicon-remove"></span>
-                    </button>
+                    </a>
                   </td>
                 </tr>
               </tbody>
