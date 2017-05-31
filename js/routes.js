@@ -22,4 +22,9 @@ carmenSandiegoApp.config(function ($stateProvider, $urlRouterProvider) {
       controller: "PaisesCtrl as paises"
     })
 
+    .state('worldMapEdit', {
+      url: "/worldMap/:id",
+      templateUrl: "partials/worldMap.html",
+      controller: "PaisesCtrl as paises"
+    })
 });

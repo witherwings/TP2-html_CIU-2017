@@ -38,6 +38,13 @@ carmenSandiegoApp.controller('PaisesCtrl', function (Paises) {
             }
         });
     };
+    
+ // VER DETALLE
+    this.paisSeleccionado = null;
+
+    this.verDetalle = function(pais) {
+        self.paisSeleccionado = pais;
+    };
 
      // FEEDBACK & ERRORES
     this.msgs = [];

@@ -8,3 +8,7 @@ function toggle(){
 	$("#wrapper").toggleClass("active");
 	});
 }
+
+function pepe(){
+	$('#div_details').show();
+}
