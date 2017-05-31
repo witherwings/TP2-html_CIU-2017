@@ -1,4 +1,4 @@
-<html>
+<html ng-app="carmenSandiegoApp">
 
 <head>
 
@@ -10,7 +10,13 @@
 	<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
 	<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 	
-	<script type="" src="js/index.js"></script>
+	<!-- ANGULAR  -->
+	<script src="node_modules/angular/angular.min.js"></script>
+	<script src="node_modules/angular-animate/angular-animate.min.js"></script>
+	<script src="node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
+	<script src="node_modules/angular-resource/angular-resource.min.js"></script>
+	
+	<script src="js/index.js"></script>
 	<link rel="stylesheet" href="css/index.css">
 
 	<title>Carmen Sandiego</title>
@@ -29,7 +35,7 @@
 						<a id="menu-toggle" href="#" class="glyphicon glyphicon-align-justify btn-menu toggle">
 							<i class="fa fa-bars"></i>
 						</a>
-						Carmen Sandiego
+						<a ui-sref="home">Carmen Sandiego</a>						
 					</div>
 				</div>
 			</div>
@@ -39,19 +45,19 @@
 			<nav id="spy" class="fill">
 				<ul class="sidebar-nav nav navbar-default fill">
 					<li>
-						<a href="#anch1">
+						<a>
 							Resolver Misterio
 							<span style="position: absolute; right:20px; top: 13px" class='glyphicon glyphicon-user'></span>
 						</a>
 					</li>
 					<li>
-						<a href="#anch2">
+						<a ui-sref="worldMap">
 							Mapamundi
 							<span style="position: absolute; right:20px; top: 13px" class='glyphicon glyphicon-globe'></span>
 						</a>
 					</li>
 					<li>
-						<a href="#anch3">
+						<a ui-sref="archiveFiles">
 							Expedientes
 							<span style="position: absolute; right:20px; top: 13px" class='glyphicon glyphicon-file'></span>
 						</a>
@@ -61,10 +67,16 @@
 		</div>
 		<!-- Page content -->
 		<div id="page-content-wrapper">
-			<div class="page-content">
+			<div class="page-content" ui-view>
 			</div>
 		</div>
 	</div>
+	
+<script src="js/app.js"></script>
+<script src="js/services.js"></script>
+<script src="js/routes.js"></script>
+<script src="js/villanosApp.js"></script>
+<script src="js/paisesApp.js"></script>
 
 </body>
 
