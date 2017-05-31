@@ -18,7 +18,7 @@
       <script src="../node_modules/angular/angular.min.js"></script>
   </head>
 
-  <body ng-controller="PaisesCtrl as paises">
+  <body data-ng-controller="PaisesCtrl as paises">
 
     <div class="row">
         <div class="col-md-3">
@@ -39,8 +39,8 @@
                 </tr>
               </thead>
               <tbody>
-                <tr ng-repeat="pais in paises.paises">
-                  <td>{{pais.nombre}}</td>
+                <tr data-ng-repeat="pais in paises.paises" class="animate-repeat">
+                  <td>{{pais.name}}</td>
                   <td>
                     <button type="submit" class="btn btn-default" ng-click="">
                       <span class="glyphicon glyphicon-pencil"></span>
@@ -153,7 +153,8 @@
     </div>
 
   <!-- JS -->
-  <script src="../js/paisesApp.js"></script>
+  <script src="js/services.js"></script>
+  <script src="js/paisesApp.js"></script>
   </body>
 
 </html>
