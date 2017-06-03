@@ -17,7 +17,7 @@
                 <tr data-ng-repeat="pais in paises.paises" class="animate-repeat">
                   <td>{{pais.name}}</td>
                   <td>
-                    <button type="button" class="btn btn-default" onclick="pepe()" data-ng-click="paises.verDetalle(pais)">
+                    <button type="button" class="btn btn-default" onclick="showId('#div_details')" data-ng-click="paises.verDetalle(pais)">
                     <a ui-sref="worldMapEditing({id: pais.id})" class="btn btn-default" ng-click="">
                       <span class="glyphicon glyphicon-pencil"></span>
                     </a>
@@ -119,7 +119,7 @@
                     </div>
                   </form>
                 </div>
-                <button type="submit" class="btn btn-primary" ng-click="" style="margin:5px">
+                <button type="submit" class="btn btn-primary" ng-click="" onclick="hideId('#div_details');" style="margin:5px">
               Aceptar
             </button>
             </div>

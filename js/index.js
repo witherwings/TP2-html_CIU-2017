@@ -9,6 +9,10 @@ function toggle(){
 	});
 }
 
-function pepe(){
-	$('#div_details').show();
+function showId(e) {
+	$(e).show("slow");
+}
+
+function hideId(e) {
+	$(e).hide("slow"); 
 }
