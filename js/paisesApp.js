@@ -43,7 +43,7 @@ carmenSandiegoApp.controller('PaisesCtrl', function (Paises) {
     this.paisSeleccionado = null;
 
     this.verDetalle = function(pais) {
-        self.paisSeleccionado = pais;
+        this.paisSeleccionado = pais;
     };
 
      // FEEDBACK & ERRORES
@@ -64,4 +64,15 @@ carmenSandiegoApp.controller('PaisesCtrl', function (Paises) {
             while (mensajes.length > 0) mensajes.pop();
         }, 3000);
     }
+
+    // OBTENER DATOS 
+
+    this.getFeatures = function() {
+        var data;
+        Paises.queryp(function(data) {
+            data = data;
+        }, errorHandler);
+        return data.features;
+    }
+
 });
