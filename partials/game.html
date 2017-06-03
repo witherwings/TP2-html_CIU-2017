@@ -1,94 +1,128 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Carmen San Diego</title>
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
-
-    <!-- BOOTSTRAP -->
-      <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
-      <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
-</head>
-<body>
-    <h3>Estas en: <b>Egipto</b>, Antes: <b>Argentina -> Brasil -> Ecuador</b></h3>
-    <div class="row">
-
-            <div class="col-md-4"><!-- SECCION VIAJES -->
-            	<div class="panel panel-default">
-            		<div class="panel-heading">
-      				<h3>Viajar a: Cuba</h3>
-      				<button type="button">Ir!</button>
-            		</div>
-            		<div class="panel-body">
-            			<form>
-                                    <div class="panel panel-info">
-                                          <div class="panel-heading">
-                                                Posibilidades
-                                          </div>
-                                          <div class="panel-body">
-                                                 <input type="radio" name="destino"> Argentina<br>
-                                          </div>
-                                          <div class="panel-body">
-                                                 <input type="radio" name="destino"> Peru<br>
-                                          </div>
-                                          <div class="panel-body">
-                                                 <input type="radio" name="destino"> Noruega<br>
-                                          </div>
-                                          <div class="panel-body">
-                                                 <input type="radio" name="destino"> Nueva Zelanda<br>
-                                          </div>
-                                    </div>
-                              </form>
-            		</div>
-            		<div class="panel-body">
-                        <div class="panel panel-info">
-            			<div class="panel-heading">Destinos fallidos</div>
-            			<div class="panel-body">Israel</div>
-                              <div class="panel-body">Tailandia</div>
-            		</div>
-                        </div>
-            	</div>
-            </div>
-            <div class="col-md-4"><!-- SECCION INVESTIGAR -->
-            	<div class="panel panel-default">
-                        <div class="panel-heading">
-                              <h3>Investigar</h3>
-                        </div>   
-                        <div class="panel-body">
-                              <div class="col-md-3">IMG</div>
-                              <div class="col-md-9">Embajada</div>
-                        </div>  
-                        <div class="panel-body">
-                              <div class="col-md-3">IMG</div>
-                              <div class="col-md-9">Club</div>
-                        </div>  
-                        <div class="panel-body">
-                              <div class="col-md-3">IMG</div>
-                              <div class="col-md-9">Biblioteca</div>
-                        </div>  
-                  </div>
-            </div>
-            <div class="col-md-4"><!-- SECCION VISITANDO Y ORDEN DE ARRESTO -->
-            	<div class="panel panel-info">
-                        <div class="panel-heading">Visitando</div>  
-                        <div class="panel-body">
-                              <h3>Club</h3>
-                              <p>Vi alguien sospechoso rascandose LA Pansa.</p>
-                        </div>
-                  </div>
-                  <div class="panel panel-danger">
-                        <div class="panel-heading">Pedir orden de arresto:</div>
-                        <div class="panel-footer">
-                              <form>
-                                    <select>
-                                      <option value="igor">Igor</option>
-                                      <option value="carmen">Carmen San Diego</option>
-                                    </select>
-                                    <button type="button">Pedir orden!</button>
-                              </form>
-                        </div>
-                  </div>
-            </div>
-
+<div> 
+    <div>
+      <h3>
+        Estas en: <b></b>, Antes: <b></b>
+      </h3>
     </div>
-</body>
-</html>
+    <div class="col-md-10 col-md-offset-1">
+      <div class="col-md-4">
+        <div class="modal fade" id="miModal" tabindex="-1" role="dialog" 
+                  aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                  <p class="text-center">Viajar a:</p>
+                </h4>
+              </div>
+              <div class="modal-body">
+                <button type="button" class="btn btn-default btn-lg btn-block">
+                  Pais
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" 
+                data-target="#miModal" style="margin:20px">
+          Conexiones
+        </button>
+        <div class="panel panel-default" style="margin:20px">
+          <div class="panel-heading">
+            <h3 class="panel-title">Destinos Fallidos</h3>
+          </div>
+          <div class="panel-body">
+            <ul class="list-group">
+              <li class="list-group-item">Pais</li>
+              <li class="list-group-item">Pais</li>
+              <li class="list-group-item">Pais</li>
+              <li class="list-group-item">Pais</li>
+              <li class="list-group-item">Pais</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="panel panel-default" style="margin:20px">
+          <div class="panel-heading">
+            <h3 class="panel-title">Investigar</h3>
+          </div>
+          <div class="panel-body">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Lugares</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <img class="pequeña" src="../img/lupa-huella.jpg" alt="Responsive image" >
+                  </td>
+                  <td>
+                    <button type="button" class="btn btn-default btn-lg btn-block"" onclick="">
+                      Lugar
+                    </button> 
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <img class="pequeña" src="../img/lupa-huella.jpg" alt="Responsive image" >
+                  </td>
+                  <td>
+                    <button type="button" class="btn btn-default btn-lg btn-block"" onclick="">
+                      Lugar
+                    </button> 
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <img class="pequeña" src="../img/lupa-huella.jpg" alt="Responsive image" >
+                  </td>
+                  <td>
+                    <button type="button" class="btn btn-default btn-lg btn-block"" onclick="">
+                      Lugar
+                    </button> 
+                  </td>
+                </tr>
+              </tbody>
+             </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="panel panel-default" style="margin:20px">
+          <div class="panel-heading">
+            <h3 class="panel-title">
+            Orden de arrestro <b></b>
+            </h3>
+          </div>
+          <div class="panel-body">
+            <div class="input-group">
+              <select class="form-control">
+                <option>villano</option>
+                <option>villano</option>
+                <option>villano</option>
+              </select>
+              <div class="input-group-btn">
+                <button type="submit" class="btn btn-primary">
+                  <span >Emitir</span>
+                </button>
+              </div>  
+            </div>
+            <div class="panel panel-default" style="margin:20px">
+              <div class="panel-body">
+                <h3 class="text-center"> Orden emitida contra Villano </h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+</div>
