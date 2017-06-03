@@ -6,7 +6,7 @@
             </strong>
           </h1>
           <div class="col-md-6">
-            <table class="table table-bordered">
+            <table class="table table-bordered"">
               <thead>
                 <tr>
                   <th>Paises</th>
@@ -17,8 +17,7 @@
                 <tr data-ng-repeat="pais in paises.paises" class="animate-repeat">
                   <td>{{pais.name}}</td>
                   <td>
-                    <!--<button type="button" class="btn btn-default" onclick="showId('#div_details');" data-ng-click="paises.verDetalle(pais)">-->
-                    <a ui-sref="worldMapEditing({id: pais.id})" class="btn btn-default" onclick="showId('#div_details');" data-ng-click="paises.verDetalle(pais)">
+                    <a ui-sref="worldMapEditing({id: pais.id})" class="btn btn-default" onclick="showId('#div_details');" data-ng-click="paises.verDetalle(pais.id)">
                     <span class="glyphicon glyphicon-pencil"></span>
                     </a>
                     <a class="btn btn-default" ng-click="">
@@ -41,17 +40,17 @@
                       <label for="inputNombre">Nombre</label>
                       <input type="text" class="form-control" id="inputNombre" placeholder="Nombre" ng-model="paises.paisSeleccionado.name">
                     </div>
-                    <table class="table table-bordered">
+                    <table class="table table-bordered" >
                       <thead>
                         <tr>
                           <th>Caracteristicas</th>
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <td>
-                            <!-- mostrar lo que vamos agregando -->
-                          </td>
+                         <tr data-ng-repeat="feature in paises.paisSeleccionado.features" class="animate-repeat">
+                            <td>
+                              {{feature}}
+                            </td>
                         </tr>
                       </tbody>
                     </table>
@@ -63,6 +62,7 @@
                         </button>
                       </div>
                     </div>
+                    <br />
                     <table class="table table-bordered">
                       <thead>
                         <tr>
@@ -70,10 +70,9 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <td>
-                            <!-- mostrar lo que vamos agregando -->
-                          </td>
+                        <tr data-ng-repeat="conn in paises.paisSeleccionado.connectedCountries" class="animate-repeat">
+                              <td>{{conn.name}}</td>
+                        </tr>
                         </tr>
                       </tbody>
                     </table>
@@ -90,6 +89,7 @@
                         </button>
                       </div>
                     </div>
+                    <br />
                     <table class="table table-bordered">
                       <thead>
                         <tr>
@@ -97,9 +97,9 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
+                        <tr data-ng-repeat="place in paises.paisSeleccionado.places" class="animate-repeat">
                           <td>
-                            <!-- mostrar lo que vamos agregando -->
+                            {{place}}
                           </td>
                         </tr>
                       </tbody>

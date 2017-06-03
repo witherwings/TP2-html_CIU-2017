@@ -42,8 +42,9 @@ carmenSandiegoApp.controller('PaisesCtrl', function (Paises) {
  // VER DETALLE
     this.paisSeleccionado = null;
 
-    this.verDetalle = function(pais) {
-        this.paisSeleccionado = pais;
+    this.verDetalle = function(id) {
+        //this.paisSeleccionado = pais;
+        this.paisSeleccionado = Paises.get({},{'id': id});
     };
 
      // FEEDBACK & ERRORES
@@ -63,16 +64,6 @@ carmenSandiegoApp.controller('PaisesCtrl', function (Paises) {
         $timeout(function() {
             while (mensajes.length > 0) mensajes.pop();
         }, 3000);
-    }
-
-    // OBTENER DATOS 
-
-    this.getFeatures = function() {
-        var data;
-        Paises.queryp(function(data) {
-            data = data;
-        }, errorHandler);
-        return data.features;
     }
 
 });
