@@ -15,3 +15,9 @@ carmenSandiegoApp.factory('Villanos', function($resource) {
         'remove': { method:'DELETE' }
     });
 });
+
+carmenSandiegoApp.factory('Juego', function($resource) {
+    return $resource('//localhost:9000/iniciarJuego', {
+        'save': { method: 'POST' }
+    });
+});

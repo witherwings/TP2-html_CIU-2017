@@ -34,5 +34,11 @@ carmenSandiegoApp.config(function ($stateProvider, $urlRouterProvider) {
       controller: "PaisesCtrl as paises"
     })
 
+    .state('game', {
+      url: "/game",
+      templateUrl: "partials/game.html",
+      controller: "JuegoCtrl as juego"
+    });
+
 
 });
