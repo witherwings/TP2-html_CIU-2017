@@ -39,10 +39,10 @@ carmenSandiegoApp.controller('PaisesCtrl', function (Paises) {
         });
     };
     
- // VER DETALLE
+    // VER DETALLE
     this.paisSeleccionado = null;
 
-    this.verDetalle = function(id) {
+    this.verDetallePais = function(id) {
         //this.paisSeleccionado = pais;
         this.paisSeleccionado = Paises.get({},{'id': id});
     };

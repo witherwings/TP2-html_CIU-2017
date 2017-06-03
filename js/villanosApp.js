@@ -38,6 +38,14 @@ carmenSandiegoApp.controller('VillanosCtrl', function (Villanos) {
             }
         });
     };
+    
+    // VER DETALLE
+    this.villanoSeleccioando = null;
+
+    this.verDetalleVillano = function(id) {
+        this.villanoSeleccioando = Villanos.get({},{'id': id});
+        this.fillGender();
+    };
 
      // FEEDBACK & ERRORES
     this.msgs = [];

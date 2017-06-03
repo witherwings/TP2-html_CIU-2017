@@ -1,11 +1,6 @@
 carmenSandiegoApp.factory('Paises', function($resource) {
     var resource = $resource('//localhost:9000/paises/:id', {id: '@id'}, {
     	'query': { method: 'GET', isArray: true },
-        /*'queryp': { 
-            method: 'GET', 
-            params: { id: '@id' }, 
-            isArray: false 
-        },*/
         'update': { method: 'PUT' },
         'save': { method: 'POST' },
         'remove': { method:'DELETE' }
