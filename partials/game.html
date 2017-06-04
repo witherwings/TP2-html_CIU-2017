@@ -1,5 +1,5 @@
-<div ng-controller="JuegoCtrl as juego"> 
-    <div class="col-md-offset-1">
+<div> 
+    <div class="col-md-offset-1" >
       <h3 ng-model= "juego.paisAnterior()">
         Estas en: <b>{{juego.data.pais.name}}</b>, Antes: <b>{{juego.paisAnterior}}</b>
       </h3>
@@ -27,10 +27,10 @@
           </div>
         </div>
         <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" 
-                data-target="#miModal" style="margin:20px">
+                data-target="#miModal" style="margin:5px">
           Conexiones
         </button>
-        <div class="panel panel-default" style="margin:20px">
+        <div class="panel panel-default" style="margin:5px">
           <div class="panel-heading">
             <h3 class="panel-title">Destinos Fallidos</h3>
           </div>
@@ -42,7 +42,7 @@
         </div>
       </div>
       <div class="col-md-4">
-        <div class="panel panel-default" style="margin:20px">
+        <div class="panel panel-default" style="margin:5px">
           <div class="panel-heading">
             <h3 class="panel-title">Investigar</h3>
           </div>
@@ -71,7 +71,7 @@
         </div>
       </div>
       <div class="col-md-4">
-        <div class="panel panel-default" style="margin:20px">
+        <div class="panel panel-default" style="margin:5px">
           <div class="panel-heading">
             <h3 class="panel-title">
             Orden de arrestro <b></b>
@@ -80,9 +80,7 @@
           <div class="panel-body">
             <div class="input-group">
               <select class="form-control">
-                <option>villano</option>
-                <option>villano</option>
-                <option>villano</option>
+                <option ng-repeat="villano in juego.villanos">{{villano.name}}</option>
               </select>
               <div class="input-group-btn">
                 <button type="submit" class="btn btn-primary">
@@ -98,6 +96,12 @@
           </div>
         </div>
       </div>
+
+      <!-- Content Orden de arresto -->
+      <!-- Poner <a></a> -->
+      <!-- <div ui-sref="game.orden" ui-view= "arresto"></div> -->
+      
+
     </div>
 
 </div>

@@ -1,4 +1,4 @@
-carmenSandiegoApp.controller('JuegoCtrl', function (Juego) {
+carmenSandiegoApp.controller('JuegoCtrl', function (Juego, Villanos) {
 	var self = this;
 
     self.data = [];
@@ -12,8 +12,19 @@ carmenSandiegoApp.controller('JuegoCtrl', function (Juego) {
             self.data = data;
         }, errorHandler);
     };
-    
+
     this.updateData();
+
+  	///// Parte de villanos /////
+    self.villanos = [];
+
+    this.updateVillains = function() {
+        Villanos.query(function(data) {
+            self.villanos = data;
+        }, errorHandler);
+    };
+    this.updateVillains();
+    /////////////////////////////    
 
     this.paisAnterior =null;
 
