@@ -44,12 +44,18 @@
                       <thead>
                         <tr>
                           <th>Caracteristicas</th>
+                          <th></th>
                         </tr>
                       </thead>
                       <tbody>
-                         <tr data-ng-repeat="feature in paises.paisSeleccionado.features" class="animate-repeat">
+                        <tr data-ng-repeat="feature in paises.paisSeleccionado.features" class="animate-repeat">
                             <td>
                               {{feature}}
+                            </td>
+                            <td>
+                              <button type="submit" class="btn btn-default">
+                                <span class="glyphicon glyphicon-remove"></span>
+                              </button>
                             </td>
                         </tr>
                       </tbody>
@@ -67,12 +73,19 @@
                       <thead>
                         <tr>
                           <th>Conexiones</th>
+                          <th></th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr data-ng-repeat="conn in paises.paisSeleccionado.connectedCountries" class="animate-repeat">
-                              <td>{{conn.name}}</td>
-                        </tr>
+                          <td>
+                            {{conn.name}}
+                          </td>
+                          <td>
+                            <button type="submit" class="btn btn-default">
+                              <span class="glyphicon glyphicon-remove"></span>
+                            </button>
+                          </td> 
                         </tr>
                       </tbody>
                     </table>
@@ -94,12 +107,18 @@
                       <thead>
                         <tr>
                           <th>Lugares de Interes</th>
+                          <th></th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr data-ng-repeat="place in paises.paisSeleccionado.places" class="animate-repeat">
                           <td>
                             {{place}}
+                          </td>
+                          <td>
+                            <button type="submit" class="btn btn-default">
+                              <span class="glyphicon glyphicon-remove"></span>
+                            </button>
                           </td>
                         </tr>
                       </tbody>

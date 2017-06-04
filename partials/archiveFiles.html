@@ -48,7 +48,8 @@
                     		<table class="table table-bordered">
                     			<thead>
 		                        <tr>
-		                          <th>Senhas</th>
+		                          <th>Señas</th>
+                              <th></th>
 		                        </tr>
 		                      </thead>
 		                      <tbody>
@@ -56,6 +57,11 @@
 			                          <td>
 			                             {{sign}}
 			                          </td>
+                                <td>
+                                  <button type="submit" class="btn btn-default">
+                                    <span class="glyphicon glyphicon-remove"></span>
+                                  </button>
+                                </td>
 			                        </tr>
 		                      </tbody>
                     		</table>
@@ -74,12 +80,18 @@
                     			<thead>
 		                        <tr>
 		                          <th>Hobbies</th>
+                              <th></th>
 		                        </tr>
 		                      </thead>
 		                      <tbody>
 		                      		<tr data-ng-repeat="hobbie in villanos.villanoSeleccioando.hobbies" class="animate-repeat">
                                 <td>
                                    {{hobbie}}
+                                </td>
+                                <td>
+                                  <button type="submit" class="btn btn-default">
+                                    <span class="glyphicon glyphicon-remove"></span>
+                                  </button>
                                 </td>
                               </tr>
 		                      </tbody>
