@@ -18,7 +18,9 @@ carmenSandiegoApp.factory('Villanos', function($resource) {
 });
 
 carmenSandiegoApp.factory('Juego', function($resource) {
-    return $resource('//localhost:9000/iniciarJuego', {
+    var resource = $resource('//localhost:9000/iniciarJuego', {
         'save': { method: 'POST' }
     });
+    return resource;
 });
+

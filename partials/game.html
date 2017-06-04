@@ -1,7 +1,7 @@
-<div> 
-    <div>
-      <h3>
-        Estas en: <b></b>, Antes: <b></b>
+<div ng-controller="JuegoCtrl as juego"> 
+    <div class="col-md-offset-1">
+      <h3 ng-model= "juego.paisAnterior()">
+        Estas en: <b>{{juego.data.pais.name}}</b>, Antes: <b>{{juego.paisAnterior}}</b>
       </h3>
     </div>
     <div class="col-md-10 col-md-offset-1">
@@ -18,9 +18,9 @@
                   <p class="text-center">Viajar a:</p>
                 </h4>
               </div>
-              <div class="modal-body">
+              <div class="modal-body" data-ng-repeat="pais in juego.data.pais.connectedCountries">
                 <button type="button" class="btn btn-default btn-lg btn-block">
-                  Pais
+                  {{pais.name}}
                 </button>
               </div>
             </div>
@@ -34,13 +34,9 @@
           <div class="panel-heading">
             <h3 class="panel-title">Destinos Fallidos</h3>
           </div>
-          <div class="panel-body">
-            <ul class="list-group">
-              <li class="list-group-item">Pais</li>
-              <li class="list-group-item">Pais</li>
-              <li class="list-group-item">Pais</li>
-              <li class="list-group-item">Pais</li>
-              <li class="list-group-item">Pais</li>
+          <div class="panel-body" ng-model= juego.setPaisesFallidos()>
+            <ul class="list-group" data-ng-repeat="pais in juego.data.paisesFallidos">
+              <li class="list-group-item">{{pais}}</li>
             </ul>
           </div>
         </div>
@@ -59,33 +55,13 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
+                <tr data-ng-repeat="lugar in juego.data.pais.places">
                   <td>
                     <img class="pequeña" src="../img/lupa-huella.jpg" alt="Responsive image" >
                   </td>
                   <td>
                     <button type="button" class="btn btn-default btn-lg btn-block"" onclick="">
-                      Lugar
-                    </button> 
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <img class="pequeña" src="../img/lupa-huella.jpg" alt="Responsive image" >
-                  </td>
-                  <td>
-                    <button type="button" class="btn btn-default btn-lg btn-block"" onclick="">
-                      Lugar
-                    </button> 
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <img class="pequeña" src="../img/lupa-huella.jpg" alt="Responsive image" >
-                  </td>
-                  <td>
-                    <button type="button" class="btn btn-default btn-lg btn-block"" onclick="">
-                      Lugar
+                      {{lugar}}
                     </button> 
                   </td>
                 </tr>
@@ -94,7 +70,6 @@
           </div>
         </div>
       </div>
-
       <div class="col-md-4">
         <div class="panel panel-default" style="margin:20px">
           <div class="panel-heading">

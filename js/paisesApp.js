@@ -64,6 +64,6 @@ carmenSandiegoApp.controller('PaisesCtrl', function (Paises) {
         $timeout(function() {
             while (mensajes.length > 0) mensajes.pop();
         }, 3000);
-    }
+    };
 
 });
