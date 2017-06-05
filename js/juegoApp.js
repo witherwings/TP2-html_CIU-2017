@@ -1,4 +1,4 @@
-carmenSandiegoApp.controller('JuegoCtrl', function (Juego, Villanos, OrdenDeArresto) {
+carmenSandiegoApp.controller('JuegoCtrl', function (Juego, Villanos, OrdenDeArresto, Viajar) {
 	var self = this;
 
     self.data = [];
@@ -56,5 +56,12 @@ carmenSandiegoApp.controller('JuegoCtrl', function (Juego, Villanos, OrdenDeArre
     		this.paisesFallidos = self.data.paisesFallidos;
     	}
     };
+
+    ///// Parte de viajar /////
+    this.viajar = function(paisId){
+        var viaje = {destinoId: paisId, casoId: self.data.id};
+        self.data = Viajar.save(viaje);
+    };
+    ////////////////////////////////////
     
 });

@@ -31,3 +31,10 @@ carmenSandiegoApp.factory('OrdenDeArresto', function($resource) {
     return resource;
 });
 
+carmenSandiegoApp.factory('Viajar', function($resource) {
+    var resource = $resource('//localhost:9000/viajar', {
+        'save': { method: 'POST', params: { "destinoId" : 0, "casoId": 0}}
+    });
+    return resource;
+});
+
