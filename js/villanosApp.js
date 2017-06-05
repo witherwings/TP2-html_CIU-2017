@@ -17,12 +17,13 @@ carmenSandiegoApp.controller('VillanosCtrl', function (Villanos) {
     
     this.updateList();
 
-    // AGREGAR
+    // AGREGAR    
     this.createVillain = function() {
-        Villanos.save(this.newVillain, function(data) {
-            self.messageNotify('Pais agregado con id:' + data.id);
+        console.log(this.nuevoVillano)
+        Villanos.save(this.nuevoVillano, function(data) {
+            self.messageNotify('Villano agregado con id:' + data.id);
             self.updateList();
-            self.newVillain = null;
+            self.nuevoVillano = null;
         }, errorHandler);
     };
 
@@ -32,18 +33,29 @@ carmenSandiegoApp.controller('VillanosCtrl', function (Villanos) {
         bootbox.confirm(mensaje, function(confirma) {
             if (confirma) {
                 Villanos.remove(villano, function() {
-                    self.messageNotify('Pais eliminado!');
+                    self.messageNotify('Villano eliminado!');
                     self.updateList();
                 }, errorHandler);
             }
         });
     };
-    
+
+    this.updateVillain = function() {
+        console.log(this.villanoSeleccionado);
+        Villanos.update(this.villanoSeleccionado, function() {
+            self.messageNotify('Villano actualizado!');
+            self.updateList();
+        }, errorHandler);
+
+        this.villanoSeleccionado = null;
+        // $("#editarLibroModal").modal('toggle');
+    };
+
     // VER DETALLE
-    this.villanoSeleccioando = null;
+    this.villanoSeleccionado = null;
 
     this.verDetalleVillano = function(id) {
-        this.villanoSeleccioando = Villanos.get({},{'id': id});
+        this.villanoSeleccionado = Villanos.get({},{'id': id});
         this.fillGender();
     };
 
