@@ -58,6 +58,11 @@ carmenSandiegoApp.controller('PaisesCtrl', function (Paises) {
         this.createCountry();
     };
 
+    // QUITAR FEATURE
+    this.removeFeature = function(feature) {
+        //TODO: borrar una feature de la lista de features de this.paisSeleccionado
+    };
+
      // FEEDBACK & ERRORES
     this.msgs = [];
     this.messageNotify = function(mensaje) {

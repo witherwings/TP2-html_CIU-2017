@@ -53,9 +53,9 @@
                               {{feature}}
                             </td>
                             <td>
-                              <button type="submit" class="btn btn-default">
+                              <a ui-sref="worldMapEditing({id: paises.paisSeleccionado.id})" class="btn btn-default" data-ng-click="paises.removeFeature(feature);">
                                 <span class="glyphicon glyphicon-remove"></span>
-                              </button>
+                              </a>
                             </td>
                         </tr>
                       </tbody>
