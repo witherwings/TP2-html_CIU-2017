@@ -61,11 +61,11 @@
                       </tbody>
                     </table>
                     <div class="input-group">
-                      <input type="text" class="form-control" placeholder="caracteristica">
+                      <input type="text" class="form-control" placeholder="caracteristica" ng-model="paises.new_feature">
                       <div class="input-group-btn">
-                        <button type="submit" class="btn btn-primary">
+                        <a ui-sref="worldMapEditing({id: paises.paisSeleccionado.id})" class="btn btn-primary" data-ng-click="paises.addFeature();">
                           <span class="glyphicon glyphicon-plus"></span>
-                        </button>
+                        </a>
                       </div>
                     </div>
                     <br />

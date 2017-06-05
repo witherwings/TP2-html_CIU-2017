@@ -60,7 +60,20 @@ carmenSandiegoApp.controller('PaisesCtrl', function (Paises) {
 
     // QUITAR FEATURE
     this.removeFeature = function(feature) {
-        //TODO: borrar una feature de la lista de features de this.paisSeleccionado
+        var temp = new Array();   
+        for ( var i = 0; i < this.paisSeleccionado.features.length; i++ ) {
+            if( this.paisSeleccionado.features[i] != feature ) {
+                temp.push(this.paisSeleccionado.features[i]);
+            }
+        }
+        this.paisSeleccionado.features = temp;
+    };
+
+    // AGREGAR FEATURE
+    this.new_feature = "";
+
+    this.addFeature = function() {
+        this.paisSeleccionado.features.push(this.new_feature);
     };
 
      // FEEDBACK & ERRORES
