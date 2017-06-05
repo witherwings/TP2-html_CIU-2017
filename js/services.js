@@ -24,3 +24,10 @@ carmenSandiegoApp.factory('Juego', function($resource) {
     return resource;
 });
 
+carmenSandiegoApp.factory('OrdenDeArresto', function($resource) {
+    var resource = $resource('//localhost:9000/emitirOrdenPara', {
+        'save': { method: 'POST', params: { "villanoId" : 0, "casoId": 0}}
+    });
+    return resource;
+});
+

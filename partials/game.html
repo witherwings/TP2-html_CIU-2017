@@ -32,7 +32,7 @@
         </button>
         <div class="panel panel-default" style="margin:5px">
           <div class="panel-heading">
-            <h3 class="panel-title">Destinos Fallidos</h3>
+            <h3 class="panel-title"><b>Destinos Fallidos</b></h3>
           </div>
           <div class="panel-body" ng-model= juego.setPaisesFallidos()>
             <ul class="list-group" data-ng-repeat="pais in juego.data.paisesFallidos">
@@ -44,7 +44,7 @@
       <div class="col-md-4">
         <div class="panel panel-default" style="margin:5px">
           <div class="panel-heading">
-            <h3 class="panel-title">Investigar</h3>
+            <h3 class="panel-title"><b>Investigar</b></h3>
           </div>
           <div class="panel-body">
             <table class="table table-bordered">
@@ -74,23 +74,27 @@
         <div class="panel panel-default" style="margin:5px">
           <div class="panel-heading">
             <h3 class="panel-title">
-            Orden de arrestro <b></b>
+              <b>Orden de arrestro</b>
             </h3>
           </div>
           <div class="panel-body">
             <div class="input-group">
-              <select class="form-control">
-                <option ng-repeat="villano in juego.villanos">{{villano.name}}</option>
+              <select class="form-control" ng-model="juego.villanoSeleccionado">
+                <option ng-repeat="villano in juego.villanos" ng-value="villano">
+                  {{villano.name}}
+                </option>
               </select>
               <div class="input-group-btn">
-                <button type="submit" class="btn btn-primary">
+                <button class="btn btn-primary" ng-click="juego.emitirOrden()">
                   <span >Emitir</span>
                 </button>
               </div>  
             </div>
             <div class="panel panel-default" style="margin:20px">
               <div class="panel-body">
-                <h3 class="text-center"> Orden emitida contra Villano </h3>
+                <h3 class="text-center"> 
+                  Orden emitida contra <b>{{juego.villanoConOrden.name}}</b>
+                </h3>
               </div>
             </div>
           </div>

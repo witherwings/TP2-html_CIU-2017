@@ -1,4 +1,4 @@
-carmenSandiegoApp.controller('JuegoCtrl', function (Juego, Villanos) {
+carmenSandiegoApp.controller('JuegoCtrl', function (Juego, Villanos, OrdenDeArresto) {
 	var self = this;
 
     self.data = [];
@@ -24,6 +24,17 @@ carmenSandiegoApp.controller('JuegoCtrl', function (Juego, Villanos) {
         }, errorHandler);
     };
     this.updateVillains();
+    /////////////////////////////
+    ///// Parte de orden de arresto /////
+    self.orden = null;
+    self.villanoSeleccionado = null;
+    self.villanoConOrden = { name : "Nadie" };
+
+    this.emitirOrden = function() {
+    	var ordenCreada = {villanoId: self.villanoSeleccionado.id, casoId: self.data.id};
+        self.orden = OrdenDeArresto.save(ordenCreada);
+        self.villanoConOrden = self.villanoSeleccionado;
+    };
     /////////////////////////////    
 
     this.paisAnterior =null;
