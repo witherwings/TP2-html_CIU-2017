@@ -20,7 +20,7 @@
                     <a ui-sref="worldMapEditing({id: pais.id})" class="btn btn-default" onclick="showId('#div_details_pais');" data-ng-click="paises.verDetallePais(pais.id)">
                     <span class="glyphicon glyphicon-pencil"></span>
                     </a>
-                    <a class="btn btn-default" ng-click="">
+                    <a ui-sref="worldMap" class="btn btn-default" data-ng-click="paises.deleteCountryById(pais);">
                       <span class="glyphicon glyphicon-remove"></span>
                     </a>
                   </td>
@@ -91,10 +91,7 @@
                     </table>
                     <div class="input-group">
                       <select class="form-control">
-                        <option>Argentina</option>
-                        <option>Estados Unidos</option>
-                        <option>Mexico</option>
-                        <option>Francia</option>
+                        <option data-ng-repeat="pais in paises.paises">{{pais.name}}</option>
                       </select>
                       <div class="input-group-btn">
                         <button type="submit" class="btn btn-primary">
@@ -136,11 +133,11 @@
                         </button>
                       </div>
                     </div>
-                  </form>
+                      <a ui-sref="worldMap" class="btn btn-primary" onclick="hideId('#div_details_pais');" data-ng-click="paises.aceptar()">
+                        Aceptar
+                    </a>
                 </div>
-                <button type="submit" class="btn btn-primary" ng-click="" onclick="hideId('#div_details');" style="margin:15px">
-              Aceptar
-            </button>
+            </form>
             </div>
             
 

@@ -35,9 +35,10 @@ carmenSandiegoApp.controller('PaisesCtrl', function (Paises) {
                     self.messageNotify('Pais eliminado!');
                     self.updateList();
                 }, errorHandler);
+                //Paises.delete('//localhost:9000/paises/' + pais.id);
             }
         });
-    };
+    }; 
     
     // VER DETALLE
     this.paisSeleccionado = null;
@@ -45,6 +46,16 @@ carmenSandiegoApp.controller('PaisesCtrl', function (Paises) {
     this.verDetallePais = function(id) {
         //this.paisSeleccionado = pais;
         this.paisSeleccionado = Paises.get({},{'id': id});
+    };
+
+    // MODIFICAR
+    this.aceptar = function() {
+        Paises.remove(this.paisSeleccionado, function() {
+                    self.messageNotify('Pais eliminado!');
+                    self.updateList();
+                }, errorHandler);
+        this.newCountry = this.paisSeleccionado;
+        this.createCountry();
     };
 
      // FEEDBACK & ERRORES

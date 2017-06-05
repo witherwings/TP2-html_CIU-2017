@@ -1,5 +1,5 @@
 carmenSandiegoApp.factory('Paises', function($resource) {
-    var resource = $resource('//localhost:9000/paises/:id', {id: '@id'}, {
+    var resource = $resource('//localhost:9000/paises/:id', {'id': '@id'}, {
     	'query': { method: 'GET', isArray: true },
         'update': { method: 'PUT' },
         'save': { method: 'POST' },
