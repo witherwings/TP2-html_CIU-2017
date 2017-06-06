@@ -82,19 +82,19 @@
                             {{conn.name}}
                           </td>
                           <td>
-                            <button type="submit" class="btn btn-default">
+                            <a ui-sref="worldMapEditing({id: paises.paisSeleccionado.id})" class="btn btn-default" data-ng-click="paises.removeConnection(conn)">
                               <span class="glyphicon glyphicon-remove"></span>
-                            </button>
+                            </a>
                           </td> 
                         </tr>
                       </tbody>
                     </table>
                     <div class="input-group">
-                      <select class="form-control">
-                        <option data-ng-repeat="pais in paises.paises">{{pais.name}}</option>
+                      <select class="form-control" ng-model="paises.selectedConn" ng-options="item.name for item in paises.paises">
+                        <!--<option data-ng-repeat="pais in paises.paises">{{pais.name}}</option>-->
                       </select>
                       <div class="input-group-btn">
-                        <button type="submit" class="btn btn-primary">
+                        <button type="submit" class="btn btn-primary" data-ng-click="paises.addFeature()">
                           <span class="glyphicon glyphicon-plus"></span>
                         </button>
                       </div>

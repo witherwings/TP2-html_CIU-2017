@@ -76,6 +76,35 @@ carmenSandiegoApp.controller('PaisesCtrl', function (Paises) {
         this.paisSeleccionado.features.push(this.new_feature);
     };
 
+    // QUITAR CONEXION
+    this.removeConnection = function(conn) {
+        var temp = new Array();   
+        for ( var i = 0; i < this.paisSeleccionado.connectedCountries.length; i++ ) {
+            if( this.paisSeleccionado.connectedCountries[i] != conn ) {
+                temp.push(this.paisSeleccionado.connectedCountries[i]);
+            }
+        }
+        this.paisSeleccionado.connectedCountries = temp;
+    }
+
+    // AGREGAR CONEXION
+    this.selectedConn = this.paises[0];
+
+    this.addFeature = function() {
+        this.paisSeleccionado.connectedCountries.push(this.selectedConn);
+    }
+
+    this.removeFromArray = function(arr, elem) {
+        var data = arr.slice(0);
+        var temp = new Array();   
+        for ( var i = 0; i < data; i++ ) {
+            if( data[i] != feature ) {
+                temp.push(data[i]);
+            }
+        }
+        this.paisSeleccionado.features = temp;
+    }
+
      // FEEDBACK & ERRORES
     this.msgs = [];
     this.messageNotify = function(mensaje) {
