@@ -4,6 +4,8 @@ carmenSandiegoApp.controller('PaisesCtrl', function (Paises) {
 	var self = this;
 
 	self.paises = [];
+    self.places = ["Embajada", "Banco", "Club", "Biblioteca"];
+    self.creating = false;
 
 	function errorHandler(error) {
         self.notifyError(error.data);
@@ -39,6 +41,19 @@ carmenSandiegoApp.controller('PaisesCtrl', function (Paises) {
             }
         });
     }; 
+
+    // NUEVO PAIS
+    this.newPais = function() {
+        var newc = {
+            "id": 999,
+            "name": "Nombre",
+            "features": [],
+            "connectedCountries": [],
+            "places": [] 
+        };
+        this.paisSeleccionado = newc;
+        this.creating = true;
+    };
     
     // VER DETALLE
     this.paisSeleccionado = null;
@@ -50,10 +65,12 @@ carmenSandiegoApp.controller('PaisesCtrl', function (Paises) {
 
     // MODIFICAR
     this.aceptar = function() {
-        Paises.remove(this.paisSeleccionado, function() {
-                    self.messageNotify('Pais eliminado!');
-                    self.updateList();
-                }, errorHandler);
+        if (!this.creating) {
+            Paises.remove(this.paisSeleccionado, function() {
+                self.messageNotify('Pais eliminado!');
+                self.updateList();
+            }, errorHandler);
+        }
         this.newCountry = this.paisSeleccionado;
         this.createCountry();
     };
@@ -90,19 +107,25 @@ carmenSandiegoApp.controller('PaisesCtrl', function (Paises) {
     // AGREGAR CONEXION
     this.selectedConn = this.paises[0];
 
-    this.addFeature = function() {
+    this.addConnection = function() {
         this.paisSeleccionado.connectedCountries.push(this.selectedConn);
     }
 
-    this.removeFromArray = function(arr, elem) {
-        var data = arr.slice(0);
+    // QUITAR LUGAR
+    this.removePlace = function(place) {
         var temp = new Array();   
-        for ( var i = 0; i < data; i++ ) {
-            if( data[i] != feature ) {
-                temp.push(data[i]);
+        for ( var i = 0; i < this.paisSeleccionado.places.length; i++ ) {
+            if( this.paisSeleccionado.places[i] != place ) {
+                temp.push(this.paisSeleccionado.places[i]);
             }
         }
-        this.paisSeleccionado.features = temp;
+        this.paisSeleccionado.places = temp;
+    }
+
+    // AGREGAR LUGAR
+    this.selectedPlace = "";
+    this.addPlace = function() {
+        this.paisSeleccionado.places.push(this.selectedPlace);
     }
 
      // FEEDBACK & ERRORES
