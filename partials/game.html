@@ -1,4 +1,10 @@
-<div> 
+<div>
+  <!-- Mensajes -->
+  <div class="row">
+    <ul class="example-animate-container">
+      <li class="message bg-success animate-repeat" data-ng-repeat="msg in juego.msgs">{{msg}}</li>
+    </ul>
+  </div>
     <div class="col-md-offset-1" >
       <h3 ng-model= "juego.paisAnterior()">
         Estas en: <b>{{juego.data.pais.name}}</b>, Antes: <b>{{juego.paisAnterior}}</b>
@@ -12,10 +18,10 @@
             </h3>
           </div>
           <div class="panel-body">
-            <div class="input-group">
-              <select class="form-control" ng-model="juego.paisSeleccionado">
+            <div class="input-group" data-ng-model="juego.viaje.casoId = juego.data.id">
+              <select class="form-control" ng-model="juego.viaje.destinoId">
                 <option data-ng-repeat="pais in juego.data.pais.connectedCountries" 
-                        ng-value="pais">
+                        ng-value="pais.id">
                   {{pais.name}}
                 </option>
               </select>
@@ -23,20 +29,18 @@
                 <button class="btn btn-primary" ng-click="juego.viajar()">
                   <span >Viajar</span>
                 </button>
-              </div>  
+              </div>
             </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="panel panel-default" style="margin:5px">
-          <div class="panel-heading">
-            <h3 class="panel-title"><b>Destinos Fallidos</b></h3>
-          </div>
-          <div class="panel-body" ng-model= juego.setPaisesFallidos()>
-            <ul class="list-group" data-ng-repeat="pais in juego.data.paisesFallidos">
-              <li class="list-group-item">{{pais}}</li>
-            </ul>
+            <div class="panel panel-default" style="margin-top:20px">
+              <div class="panel-heading">
+                <h3 class="panel-title"><b>Destinos Fallidos</b></h3>
+              </div>
+              <div class="panel-body" ng-model= juego.setPaisesFallidos()>
+                <ul class="list-group" data-ng-repeat="pais in juego.paisesFallidos">
+                  <li class="list-group-item">{{pais}}</li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -77,25 +81,31 @@
             </h3>
           </div>
           <div class="panel-body">
-            <div class="input-group">
-              <select class="form-control" ng-model="juego.villanoSeleccionado">
-                <option ng-repeat="villano in juego.villanos" ng-value="villano">
-                  {{villano.name}}
-                </option>
-              </select>
-              <div class="input-group-btn">
-                <button class="btn btn-primary" ng-click="juego.emitirOrden()">
-                  <span >Emitir</span>
-                </button>
-              </div>  
-            </div>
-            <div class="panel panel-default" style="margin:20px">
-              <div class="panel-body">
-                <h3 class="text-center"> 
-                  Orden emitida contra <b>{{juego.villanoConOrden.name}}</b>
-                </h3>
-              </div>
-            </div>
+            <form name="agregarLibroForm" role="form">
+              <fieldset>
+                <div class="input-group" data-ng-model="juego.orden.casoId = juego.data.id">
+                  <select class="form-control" data-ng-model="juego.orden.villanoId">
+                    <option ng-repeat="villano in juego.villanos" ng-value="villano.id">
+                      {{villano.name}}
+                    </option>
+                  </select>
+                  <div class="input-group-btn">
+                    <button type="submit" class="btn btn-primary" data-ng-click="juego.emitirOrden()">
+                      <span >Emitir</span>
+                    </button>
+                  </div>  
+                </div>
+                <div class="panel panel-default" style="margin:20px">
+                  <div class="panel-body">
+                    <h3 class="text-center"> 
+                      Orden emitida contra villano con id: <b>{{juego.orden.villanoId}}</b>
+                  </div>
+                </div>
+                <div class="example-animate-container" style="padding-top:10px">
+                    <div class="alert alert-danger animate-repeat" ng-repeat="error in juego.errors">{{error}}</div>
+                </div>
+              </fieldset>
+            </form>
           </div>
         </div>
       </div>
