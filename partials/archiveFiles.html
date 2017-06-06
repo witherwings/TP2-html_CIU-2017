@@ -16,109 +16,29 @@
               	<tr ng-repeat="villano in villanos.villanos">
               		<td>{{villano.name}}</td>
               		<td>
-              		<a ui-sref="archiveFilesEditing({id: villano.id})" class="btn btn-default" onclick="showId('#div_details_villano');" data-ng-click="villanos.verDetalleVillano(villano.id)">
+              		  <a ui-sref="archiveFilesEditing({id: villano.id})" class="btn btn-default" onclick="showId('#div_details_villano');" data-ng-click="villanos.verDetalleVillano(villano.id)">
                       <span class="glyphicon glyphicon-pencil"></span>
                     </a>
-                    <a class="btn btn-default" ng-click="">
+                    <a ui-sref="archiveFiles" class="btn btn-default" data-ng-click="villanos.deleteVillainById(villano);">
                       <span class="glyphicon glyphicon-remove"></span>
                     </a>
                   </td>
               	</tr>
               </tbody>
              </table>
-             <button type="submit" class="btn btn-primary" onclick="showId('#div_new_villano');" ng-click="">
+             <button type="submit" class="btn btn-primary" data-ng-click="villanos.newVillano()" onclick="showId('#div_details_villano');">
               Nuevo
             </button>
           </div>
+          
            <div class="col-md-5"><!-- PARTE EDITAR VILLANOS -->
-           			<form>
-           		<div class="panel panel-default" id="div_details_villano" style="display:none">
-           			<div class="panel-body">
-           				<div class="form-group">
-                    		<label for="inputNombre">Nombre</label>
-                        <input type="text" class="form-control" id="inputNombre" placeholder="Nombre" ng-model="villanos.villanoSeleccionado.name">
-                    	</div>
-                    	<div class="form">
-                    		<label for="inputGender">Sexo</label><br />
-                    		<input type="radio" id="inputGender" value="masculino" ng-model="villanos.villanoSeleccionado.gender" value="male"> Masculino
-  							        <input type="radio" id="inputGender" value="femenino" ng-model="villanos.villanoSeleccionado.gender" value="female"> Femenino
-                    	</div>
-                    	<br />
-                    	<div class="form">
-                    		<table class="table table-bordered">
-                    			<thead>
-		                        <tr>
-		                          <th>Señas</th>
-                              <th></th>
-		                        </tr>
-		                      </thead>
-		                      <tbody>
-		                      		<tr data-ng-repeat="sign in villanos.villanoSeleccionado.signs" class="animate-repeat">
-			                          <td>
-			                             {{sign}}
-			                          </td>
-                                <td>
-                                  <button type="submit" class="btn btn-default">
-                                    <span class="glyphicon glyphicon-remove"></span>
-                                  </button>
-                                </td>
-			                        </tr>
-		                      </tbody>
-                    		</table>
-                    		<div class="input-group">
-		                      <input type="text" class="form-control" placeholder="sehna">
-		                      <div class="input-group-btn">
-		                        <button type="submit" class="btn btn-primary">
-		                          <span class="glyphicon glyphicon-plus"></span>
-		                        </button>
-		                      </div>
-		                    </div>
-                    	</div>
-                    	<br />
-                    	<div class="form">
-                    		<table class="table table-bordered">
-                    			<thead>
-		                        <tr>
-		                          <th>Hobbies</th>
-                              <th></th>
-		                        </tr>
-		                      </thead>
-		                      <tbody>
-		                      		<tr data-ng-repeat="hobbie in villanos.villanoSeleccionado.hobbies" class="animate-repeat">
-                                <td>
-                                   {{hobbie}}
-                                </td>
-                                <td>
-                                  <button type="submit" class="btn btn-default">
-                                    <span class="glyphicon glyphicon-remove"></span>
-                                  </button>
-                                </td>
-                              </tr>
-		                      </tbody>
-                    		</table>
-                    		<div class="input-group">
-		                      <input type="text" class="form-control" placeholder="hobbie">
-		                      <div class="input-group-btn">
-		                        <button type="submit" class="btn btn-primary">
-		                          <span class="glyphicon glyphicon-plus"></span>
-		                        </button>
-		                      </div>
-		                    </div>
-                    	</div>
-           			</div>
-                 <button type="submit" class="btn btn-primary" ng-click="updateVillain(villanos.villanoSeleccionado)" style="margin:15px">
-                  Aceptar
-                </button>
-           		</div>
-           			</form>
-           </div>
-           <div class="col-md-5"><!-- PARTE NUEVOS VILLANOS -->
                 <form>
-              <div class="panel panel-default" id="div_new_villano" style="display:none">
+              <div class="panel panel-default" id="div_details_villano" style="display:none">
                 <div class="panel-body">
+                <form>
                   <div class="form-group">
                         <label for="inputNombre">Nombre</label>
-                        <input type="text" class="form-control" id="inputNombre" placeholder="Nombre" data-ng-model="villanos.nuevoVillano.name">
+                        <input type="text" class="form-control" id="inputNombre" placeholder="Nombre" data-ng-model="villanos.villanoSeleccionado.name">
                       </div>
                       <div class="form">
                         <label for="inputGender">Sexo</label><br />
@@ -135,23 +55,25 @@
                             </tr>
                           </thead>
                           <tbody>
-                              <tr data-ng-repeat="sign in villanos.nuevoVillano.signs" class="animate-repeat">
+                              <tr data-ng-repeat="sign in villanos.villanoSeleccionado.signs" class="animate-repeat">
                                 <td>
                                    {{sign}}
                                 </td>
                                 <td>
-                                  <button type="submit" class="btn btn-default">
+                                    <a ui-sref="archiveFilesEditing({id: villanos.villanoSeleccionado.id})" class="btn btn-default" data-ng-click="villanos.removeSign(sign);">
                                     <span class="glyphicon glyphicon-remove"></span>
+                                    </a>
                                   </button>
                                 </td>
                               </tr>
                           </tbody>
                         </table>
                         <div class="input-group">
-                          <input id="newSenha" type="text" class="form-control" placeholder="sehna" value="">
+                          <input type="text" class="form-control" placeholder="sehna" ng-model="villanos.new_sign">
                           <div class="input-group-btn">
-                            <button type="submit" class="btn btn-primary" data-ngclick="villanos.nuevoVillano.addASign(document.getElementById('newSenha').value)">
+                            <a class="btn btn-primary" data-ng-click="villanos.addSign();">
                               <span class="glyphicon glyphicon-plus"></span>
+                            </a>
                             </button>
                           </div>
                         </div>
@@ -166,32 +88,34 @@
                             </tr>
                           </thead>
                           <tbody>
-                              <tr data-ng-repeat="hobbie in villanos.nuevoVillano.hobbies" class="animate-repeat">
+                              <tr data-ng-repeat="hobbie in villanos.villanoSeleccionado.hobbies" class="animate-repeat">
                                 <td>
                                    {{hobbie}}
                                 </td>
                                 <td>
-                                  <button type="submit" class="btn btn-default">
+                                  <a ui-sref="archiveFilesEditing({id: villanos.villanoSeleccionado.id})" class="btn btn-default" data-ng-click="villanos.removeHobbie(hobbie);">
                                     <span class="glyphicon glyphicon-remove"></span>
+                                  </a>
                                   </button>
                                 </td>
                               </tr>
                           </tbody>
                         </table>
                         <div class="input-group">
-                          <input id="newHobbie" type="text" class="form-control" placeholder="hobbie" value="">
+                          <input type="text" class="form-control" placeholder="hobbie" ng-model="villanos.new_hobbie">
                           <div class="input-group-btn">
-                            <button type="submit" class="btn btn-primary" data-ngclick="villanos.nuevoVillano.addAHobbie(document.getElementById('newHobbie').value)">
+                            <a class="btn btn-primary" data-ng-click="villanos.addHobbie();">
                               <span class="glyphicon glyphicon-plus"></span>
+                            </a>
                             </button>
                           </div>
                         </div>
                       </div>
-                </div>
-                 <button type="submit" class="btn btn-primary" data-ng-click="villanos.createVillain()" style="margin:15px">
-                  Aceptar
-                </button>
-              </div>
-                </form>
+                    </div>
+                    <a ui-sref="archiveFiles" class="btn btn-primary" onclick="hideId('#div_details_villano');" data-ng-click="villanos.aceptar()">
+                      Aceptar
+                    </a>
+                 </div>
+              </form>
            </div>
 	</div>
