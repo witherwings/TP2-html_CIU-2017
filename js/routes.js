@@ -58,16 +58,16 @@ carmenSandiegoApp.config(function ($stateProvider, $urlRouterProvider) {
       url: "/game",
       templateUrl: "partials/game.html",
       controller: "JuegoCtrl as juego"
-    })
-
-    .state('game.orden', {
-        views: {
-            'arresto': {
-                templateUrl: 'partials/orden.html',
-                controller: 'VillanosCtrl as villanos'
-            }
-        }      
     });
+
+    // .state('game.orden', {
+    //     views: {
+    //         'arresto': {
+    //             templateUrl: 'partials/orden.html',
+    //             controller: 'VillanosCtrl as villanos'
+    //         }
+    //     }      
+    // });
 
 
 });

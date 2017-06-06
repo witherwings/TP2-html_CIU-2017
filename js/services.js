@@ -24,3 +24,17 @@ carmenSandiegoApp.factory('Juego', function($resource) {
     return resource;
 });
 
+carmenSandiegoApp.factory('OrdenDeArresto', function($resource) {
+    var resource = $resource('//localhost:9000/emitirOrdenPara', {
+        'save': { method: 'POST'}
+    });
+    return resource;
+});
+
+carmenSandiegoApp.factory('Viajar', function($resource) {
+    var resource = $resource('//localhost:9000/viajar', {
+        'save': { method: 'POST'}
+    });
+    return resource;
+});
+
