@@ -6,8 +6,8 @@
     </ul>
   </div>
     <div class="col-md-offset-1" >
-      <h3 ng-model= "juego.paisAnterior()">
-        Estas en: <b>{{juego.data.pais.name}}</b>, Antes: <b>{{juego.paisAnterior}}</b>
+      <h3>
+        Estas en: <b>{{juego.data.pais.name}}</b>, Antes: <b>{{juego.paisAnterior.name}}</b>
       </h3>
     </div>
       <div class="col-md-4">
@@ -18,15 +18,17 @@
             </h3>
           </div>
           <div class="panel-body">
-            <div class="input-group" data-ng-model="juego.viaje.casoId = juego.data.id">
-              <select class="form-control" ng-model="juego.viaje.destinoId">
+<!--            <div class="input-group" data-ng-model="juego.viaje.casoId = juego.data.id">-->
+            <div class="input-group">
+              <!-- <select class="form-control" ng-model="juego.data">
                 <option data-ng-repeat="pais in juego.data.pais.connectedCountries" 
                         ng-value="pais.id">
                   {{pais.name}}
                 </option>
-              </select>
+              </select> -->
+              <select class="form-control" ng-model="selectedCountry" ng-options="pais.name for pais in juego.data.pais.connectedCountries"/>
               <div class="input-group-btn">
-                <button class="btn btn-primary" ng-click="juego.viajar()">
+                <button class="btn btn-primary" ng-click="juego.viajar(selectedCountry)">
                   <span >Viajar</span>
                 </button>
               </div>
@@ -35,16 +37,16 @@
               <div class="panel-heading">
                 <h3 class="panel-title"><b>Destinos Fallidos</b></h3>
               </div>
-              <div class="panel-body" ng-model= juego.setPaisesFallidos()>
+              <!--<div class="panel-body" ng-model= juego.setPaisesFallidos()>
                 <ul class="list-group" data-ng-repeat="pais in juego.paisesFallidos">
                   <li class="list-group-item">{{pais}}</li>
                 </ul>
-              </div>
+              </div>-->
             </div>
           </div>
         </div>
       </div>
-      <div class="col-md-4">
+      <!--<div class="col-md-4">
         <div class="panel panel-default" style="margin:5px">
           <div class="panel-heading">
             <h3 class="panel-title"><b>Investigar</b></h3>
@@ -108,7 +110,7 @@
             </form>
           </div>
         </div>
-      </div>
+      </div>-->
 
       <!-- Content Orden de arresto -->
       <!-- Poner <a></a> -->

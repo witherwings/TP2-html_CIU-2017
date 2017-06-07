@@ -7,7 +7,6 @@ carmenSandiegoApp.config(function ($stateProvider, $urlRouterProvider) {
     .state('home', {
       url: "/",
       templateUrl: "partials/home.html",
-      /*controller: "AgregarTareaController as tareasCtrl"*/
     })
 
     .state('archiveFiles', {

@@ -1,4 +1,4 @@
-carmenSandiegoApp.controller('JuegoCtrl', function (Juego, Villanos, OrdenDeArresto, Viajar) {
+carmenSandiegoApp.controller('JuegoCtrl', function (Juego, Villanos, OrdenDeArresto, Viajar, Paises) {
 	var self = this;
 
     self.data = null;
@@ -44,14 +44,25 @@ carmenSandiegoApp.controller('JuegoCtrl', function (Juego, Villanos, OrdenDeArre
     ///////////////////////////    
 
     self.paisAnterior =null;
-
-    this.paisAnterior = function(){
-    	if(self.data.paisesVisitados.length < 1){
-    		this.paisAnterior = "Ninguno";
-    	}else{
-    		this.paisAnterior = self.data.paisesVisitados[self.data.paisesVisitados.length-1];
-    	}
+    
+    this.emitirOrden = function() {
+        Viajar.save(this.viaje, function(data) {
+            self.notificarMensaje('Viaje echo!');
+            self.setPaisesFallidos();
+            self.viaje = null;
+        }, errorHandler);
     };
+
+    this.viajar = function(selectedCountry){
+//    	if(self.data.paisesVisitados.length < 1){
+//    		this.paisAnterior = "Ninguno";
+//    	}else{
+//    		this.paisAnterior = self.data.paisesVisitados[self.data.paisesVisitados.length-1];
+//    	}
+    	self.paisAnterior = self.data.pais;  	
+    	self.data.pais = Paises.get({ id: selectedCountry.id});	
+    };
+   
 
     self.paisesFallidos = [];
 
