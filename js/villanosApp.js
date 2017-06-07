@@ -4,6 +4,7 @@ carmenSandiegoApp.controller('VillanosCtrl', function (Villanos) {
 	var self = this;
 
 	self.villanos = [];
+    self.creating = false;
 
 	function errorHandler(error) {
         self.notifyError(error.data);
@@ -17,13 +18,26 @@ carmenSandiegoApp.controller('VillanosCtrl', function (Villanos) {
     
     this.updateList();
 
+    // NUEVO VILLANO
+    this.newVillano = function() {
+        var newv = {
+            "id": 999,
+            "name": "Nombre",
+            "gender": "",
+            "signs": [],
+            "hobbies": [] 
+        };
+        this.villanoSeleccionado = newv;
+        this.creating = true;
+    };
+
     // AGREGAR    
     this.createVillain = function() {
-        console.log(this.nuevoVillano)
-        Villanos.save(this.nuevoVillano, function(data) {
+        console.log(this.newVillain)
+        Villanos.save(this.newVillain, function(data) {
             self.messageNotify('Villano agregado con id:' + data.id);
             self.updateList();
-            self.nuevoVillano = null;
+            self.newVillain = null;
         }, errorHandler);
     };
 
@@ -56,14 +70,55 @@ carmenSandiegoApp.controller('VillanosCtrl', function (Villanos) {
 
     this.verDetalleVillano = function(id) {
         this.villanoSeleccionado = Villanos.get({},{'id': id});
-        this.fillGender();
+    };
+
+    // MODIFICAR
+    this.aceptar = function() {
+        if (!this.creating) {
+            Villanos.remove(this.villanoSeleccionado, function() {
+                self.messageNotify('Villano eliminado!');
+                self.updateList();
+            }, errorHandler);
+        }
+        this.newVillain = this.villanoSeleccionado;
+        this.createVillain();
+    };
+
+    // QUITAR SIGN/HOBBIE
+    this.removeSign = function(sign) {
+        var temp = new Array();   
+        for ( var i = 0; i < this.villanoSeleccionado.signs.length; i++ ) {
+            if( this.villanoSeleccionado.signs[i] != sign ) {
+                temp.push(this.villanoSeleccionado.signs[i]);
+            }
+        }
+        this.villanoSeleccionado.signs = temp;
+    };
+    this.removeHobbie = function(hobbie) {
+        var temp = new Array();   
+        for ( var i = 0; i < this.villanoSeleccionado.hobbies.length; i++ ) {
+            if( this.villanoSeleccionado.hobbies[i] != hobbie ) {
+                temp.push(this.villanoSeleccionado.hobbies[i]);
+            }
+        }
+        this.villanoSeleccionado.hobbies = temp;
+    };
+
+    // AGREGAR SIGN/HOBBIE
+    this.new_sign = "";
+    this.new_hobbie = "";
+
+    this.addSign = function() {
+        this.villanoSeleccionado.signs.push(this.new_sign);
+    };
+    this.addHobbie = function() {
+        this.villanoSeleccionado.hobbies.push(this.new_hobbie);
     };
 
      // FEEDBACK & ERRORES
     this.msgs = [];
     this.messageNotify = function(mensaje) {
-        this.msgs.push(mensaje);
-        this.notify(this.msgs);
+        bootbox.alert(mensaje);
     };
 
     this.errors = [];
