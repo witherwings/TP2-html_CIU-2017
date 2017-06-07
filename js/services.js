@@ -38,3 +38,10 @@ carmenSandiegoApp.factory('Viajar', function($resource) {
     return resource;
 });
 
+carmenSandiegoApp.factory('Pista', function($resource){
+    var resource = $resource('//localhost:9000/pistaDelLugar?place=:place&caseID=:caseID',{'place': '@place', 'caseID':'@caseID'},{
+        'query': {method: 'GET'}
+    });
+    return resource;
+});
+

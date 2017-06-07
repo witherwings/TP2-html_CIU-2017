@@ -31,22 +31,25 @@
                 <button class="btn btn-primary" ng-click="juego.viajar(selectedCountry)">
                   <span >Viajar</span>
                 </button>
+                <button class="btn btn-primary" ng-click="juego.volver()">
+                  <span >Volver</span>
+                </button>
               </div>
             </div>
             <div class="panel panel-default" style="margin-top:20px">
               <div class="panel-heading">
                 <h3 class="panel-title"><b>Destinos Fallidos</b></h3>
               </div>
-              <!--<div class="panel-body" ng-model= juego.setPaisesFallidos()>
+              <div class="panel-body" ng-model= juego.data>
                 <ul class="list-group" data-ng-repeat="pais in juego.paisesFallidos">
-                  <li class="list-group-item">{{pais}}</li>
+                  <li class="list-group-item">{{pais.name}}</li>
                 </ul>
-              </div>-->
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <!--<div class="col-md-4">
+      <div class="col-md-4">
         <div class="panel panel-default" style="margin:5px">
           <div class="panel-heading">
             <h3 class="panel-title"><b>Investigar</b></h3>
@@ -65,7 +68,7 @@
                     <img class="pequeña" src="../img/lupa-huella.jpg" alt="Responsive image" >
                   </td>
                   <td>
-                    <button type="button" class="btn btn-default btn-lg btn-block"" onclick="">
+                    <button type="button" class="btn btn-default btn-lg btn-block"" data-ng-click="juego.obtenerPista(lugar)">
                       {{lugar}}
                     </button> 
                   </td>
@@ -83,16 +86,18 @@
             </h3>
           </div>
           <div class="panel-body">
-            <form name="agregarLibroForm" role="form">
+            <form name="choripaste" role="form">
               <fieldset>
-                <div class="input-group" data-ng-model="juego.orden.casoId = juego.data.id">
-                  <select class="form-control" data-ng-model="juego.orden.villanoId">
+                <div class="input-group" data-ng-model="juego.orden.casoId">
+                  <select class="form-control" ng-model="selectedVillain" ng-options="villano.name for villano in juego.villanos"/>
+
+                  <!--<select class="form-control" data-ng-model="juego.orden.villanoId">
                     <option ng-repeat="villano in juego.villanos" ng-value="villano.id">
                       {{villano.name}}
                     </option>
-                  </select>
+                  </select> -->
                   <div class="input-group-btn">
-                    <button type="submit" class="btn btn-primary" data-ng-click="juego.emitirOrden()">
+                    <button type="submit" class="btn btn-primary" data-ng-click="juego.emitirOrden(selectedVillain)">
                       <span >Emitir</span>
                     </button>
                   </div>  
@@ -100,7 +105,7 @@
                 <div class="panel panel-default" style="margin:20px">
                   <div class="panel-body">
                     <h3 class="text-center"> 
-                      Orden emitida contra villano con id: <b>{{juego.orden.villanoId}}</b>
+                      {{juego.mensajeDeOrden()}}
                   </div>
                 </div>
                 <div class="example-animate-container" style="padding-top:10px">
@@ -110,7 +115,7 @@
             </form>
           </div>
         </div>
-      </div>-->
+      </div>
 
       <!-- Content Orden de arresto -->
       <!-- Poner <a></a> -->
