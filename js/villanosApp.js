@@ -118,8 +118,7 @@ carmenSandiegoApp.controller('VillanosCtrl', function (Villanos) {
      // FEEDBACK & ERRORES
     this.msgs = [];
     this.messageNotify = function(mensaje) {
-        this.msgs.push(mensaje);
-        this.notify(this.msgs);
+        bootbox.alert(mensaje);
     };
 
     this.errors = [];

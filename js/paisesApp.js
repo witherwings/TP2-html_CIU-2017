@@ -131,8 +131,7 @@ carmenSandiegoApp.controller('PaisesCtrl', function (Paises) {
      // FEEDBACK & ERRORES
     this.msgs = [];
     this.messageNotify = function(mensaje) {
-        this.msgs.push(mensaje);
-        this.notify(this.msgs);
+        bootbox.alert(mensaje);
     };
 
     this.errors = [];
