@@ -18,14 +18,7 @@
             </h3>
           </div>
           <div class="panel-body">
-<!--            <div class="input-group" data-ng-model="juego.viaje.casoId = juego.data.id">-->
             <div class="input-group">
-              <!-- <select class="form-control" ng-model="juego.data">
-                <option data-ng-repeat="pais in juego.data.pais.connectedCountries" 
-                        ng-value="pais.id">
-                  {{pais.name}}
-                </option>
-              </select> -->
               <select class="form-control" data-ng-model="selectedCountry" data-ng-options="pais.name for pais in juego.data.pais.connectedCountries"></select>
               <div class="input-group-btn">
                 <button class="btn btn-primary" data-ng-click="juego.viajar(selectedCountry)">
@@ -119,12 +112,5 @@
           </div>
         </div>
       </div>
-
-      <!-- Content Orden de arresto -->
-      <!-- Poner <a></a> -->
-      <!-- <div ui-sref="game.orden" ui-view= "arresto"></div> -->
-      
-
     </div>
-
 </div>
