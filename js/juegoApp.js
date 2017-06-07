@@ -1,96 +1,70 @@
-carmenSandiegoApp.controller('JuegoCtrl', function (Juego, Villanos, OrdenDeArresto, Viajar, Paises, Pista) {
+carmenSandiegoApp.controller('JuegoCtrl', function (Juego, Villanos, OrdenDeArresto, Viajar, Paises, Pista, $timeout) {
+	
 	var self = this;
-
-    self.data = null;
-
-    self.orden = {villano:null, casoId:""};
+    
+	self.data = null;
+    self.villanos = [];
+    self.orden = null;
+    self.paisesVisitados = [];
+    self.paisesFallidos = [];
+    self.paisAnterior = $(self.paisesVisitados).last();
 
     function errorHandler(error) {
         self.notifyError(error.data);
     }
 
-	this.updateData = function() {
+	self.startGame = function() {
         Juego.save(function(data) {
             self.data = data;
         }, errorHandler);
     };
-
-    this.updateData();
-
-  	///// Parte de villanos /////
-    self.villanos = [];
-
-    this.updateVillains = function() {
+    
+    self.getVillains = function() {
         Villanos.query(function(data) {
             self.villanos = data;
         }, errorHandler);
     };
-    this.updateVillains();
-    /////////////////////////////
+
+    self.startGame();
+    self.getVillains();
+
+      
     ///// Parte de orden de arresto /////
-    this.emitirOrden = function(villano) {
-        self.orden.villano = villano;
-        self.orden.casoId = self.data.id;
+    self.emitirOrden = function(villano) {
+    	self.orden = {villano: villano, casoId: self.data.id}
         OrdenDeArresto.save({"villanoId": villano.id, "casoId": self.data.id }, function(data) {
             self.notificarMensaje('Orden Emitida!');
-            self.orden =null;
         }, errorHandler);
     };
 
-    this.mensajeDeOrden = function(){
+    self.mensajeDeOrden = function(){
         var msg = "No se emitio orden aun.";
-        if(self.orden.villano !== null){
+        if(self.orden != null){
             msg = "Se emitio orden para " + self.orden.villano.name;
         }
         return msg;
-    };
-    /////////////////////////////
-    ///// Parte de viajar /////
-    // this.emitirOrden = function() {
-    //     Viajar.save(this.viaje, function(data) {
-    //         self.notificarMensaje('Viaje echo!');
-    //         self.setPaisesFallidos();
-    //         self.viaje = null;
-    //     }, errorHandler);
-    // };
-    ///////////////////////////    
+    };  
 
-    self.paisAnterior =null;
-    
-    // this.emitirOrden = function() {
-    //     Viajar.save(this.viaje, function(data) {
-    //         self.notificarMensaje('Viaje echo!');
-    //         self.setPaisesFallidos();
-    //         self.viaje = null;
-    //     }, errorHandler);
-    // };
-
-    self.paisesFallidos = [];
-
-    this.viajar = function(selectedCountry){
-//    	if(self.data.paisesVisitados.length < 1){
-//    		this.paisAnterior = "Ninguno";
-//    	}else{
-//    		this.paisAnterior = self.data.paisesVisitados[self.data.paisesVisitados.length-1];
-//    	}
-    	
+    self.viajar = function(selectedCountry){	
         Viajar.save({"destinoId": selectedCountry.id, "casoId": self.data.id}, function(data){
-            self.paisAnterior = self.data.pais;     
-            this.data = data;
-            self.data.pais = Paises.get({ id: selectedCountry.id});
+            self.paisAnterior = self.data.pais;
+            self.paisesVisitados.push(selectedCountry);
+            self.data = data;
             self.notificarMensaje('Viaje realizado!');
-            self.setPaisesFallidos();
-            self.viaje = null;
         });
     };
 
-    this.volver = function(){
-        this.paisesFallidos.push(self.data.pais);
-        self.data.pais = self.paisAnterior;
-        self.paisAnterior = null;
+    self.volver = function(){
+        self.paisesFallidos.push(self.data.pais);
+        self.paisesVisitados.pop();
+        
+        Viajar.save({"destinoId": self.paisAnterior.id, "casoId": self.data.id}, function(data){   
+        	self.data = data;
+            //self.data.pais = Paises.get({ id: self.data.pais.id});
+        });
     };
    
-    this.setPaisesFallidos = function(){
+    self.setPaisesFallidos = function(){
     	if(self.data.paisesFallidos.length > 0){
     		self.paisesFallidos = self.data.paisesFallidos;
     	}else{
@@ -98,13 +72,9 @@ carmenSandiegoApp.controller('JuegoCtrl', function (Juego, Villanos, OrdenDeArre
         }
     };
 
-    this.obtenerPista = function(lugar){
+    self.obtenerPista = function(lugar){
         Pista.query({place: lugar, caseID: self.data.id},{}, function(data) {
-            // var str = "";
-            // for (var i = 0; i < data.length; i++) {
-            //     str = str + data[i];
-            // }
-            alert(data.pista);
+            	alert(data.pista);
         }, errorHandler);
     };
     
