@@ -24,6 +24,13 @@ carmenSandiegoApp.factory('Juego', function($resource) {
     return resource;
 });
 
+carmenSandiegoApp.factory('Final', function($resource) {
+    var resource = $resource('//localhost:9000/chequearResponsable/:id',{'id': '@id'}, {
+        'query': { method: 'GET' }
+    });
+    return resource;
+});
+
 carmenSandiegoApp.factory('OrdenDeArresto', function($resource) {
     var resource = $resource('//localhost:9000/emitirOrdenPara', {
         'save': { method: 'POST'}

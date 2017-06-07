@@ -33,40 +33,20 @@ carmenSandiegoApp.config(function ($stateProvider, $urlRouterProvider) {
       controller: "PaisesCtrl as paises"
     })
 
-    // .state('game', {
-    //   url: "/game",
-    //   templateUrl: "partials/game.html",
-    //   controller: "JuegoCtrl as juego"
-    // })
-
-    // .state('game', {
-    //     url: '/game',
-    //     views: {
-    //         'principal': {
-    //             templateUrl: 'partials/game.html',
-    //             controller: 'JuegoCtrl as juego'
-    //         },
-    //         'arresto': {
-    //             templateUrl: 'partials/orden.html',
-    //             controller: 'VillanosCtrl as villanos'
-    //         }
-    //     }      
-    // });
-    // 
     .state('game', {
       url: "/game",
       templateUrl: "partials/game.html",
       controller: "JuegoCtrl as juego"
+    })
+
+    .state('success',{
+      url:"/sucess",
+      templateUrl: "partials/success.html"
+    })
+
+    .state('defeat',{
+      url:"/defeat",
+      templateUrl: "partials/defeated.html"
     });
-
-    // .state('game.orden', {
-    //     views: {
-    //         'arresto': {
-    //             templateUrl: 'partials/orden.html',
-    //             controller: 'VillanosCtrl as villanos'
-    //         }
-    //     }      
-    // });
-
 
 });

@@ -1,4 +1,4 @@
-carmenSandiegoApp.controller('JuegoCtrl', function (Juego, Villanos, OrdenDeArresto, Viajar, Paises, Pista, $timeout) {
+carmenSandiegoApp.controller('JuegoCtrl', function (Juego, Villanos, OrdenDeArresto, Viajar, Paises, Pista, Final, $timeout, $state) {
 	
 	var self = this;
     
@@ -75,7 +75,25 @@ carmenSandiegoApp.controller('JuegoCtrl', function (Juego, Villanos, OrdenDeArre
     self.obtenerPista = function(lugar){
         Pista.query({place: lugar, caseID: self.data.id},{}, function(data) {
             	alert(data.pista);
+                if(data.pista.includes("ALTO!! Detengase: ")){
+                    self.verifyWarrant();
+                }
         }, errorHandler);
+    };
+
+    this.verifyWarrant = function(){
+        if(self.orden == null){
+            $state.go("defeat");
+            return
+        }
+        Final.get({id: self.orden.villano.id}, function(data){
+            if(data.Chequeo == "false"){
+                $state.go("defeat");
+            }
+            else{
+                $state.go("success");
+            }
+        });
     };
     
     // FEEDBACK & ERRORES
