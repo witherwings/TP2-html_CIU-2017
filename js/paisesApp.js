@@ -6,6 +6,7 @@ carmenSandiegoApp.controller('PaisesCtrl', function (Paises) {
 	self.paises = [];
     self.places = ["Embajada", "Banco", "Club", "Biblioteca"];
     self.creating = false;
+    this.paisSeleccionado = null;
 
 	function errorHandler(error) {
         self.notifyError(error.data);
@@ -56,14 +57,13 @@ carmenSandiegoApp.controller('PaisesCtrl', function (Paises) {
     };
     
     // VER DETALLE
-    this.paisSeleccionado = null;
-
     this.verDetallePais = function(id) {
         //this.paisSeleccionado = pais;
         this.paisSeleccionado = Paises.get({},{'id': id});
     };
 
     // MODIFICAR
+    // TODO: cambiar por metodo PUT
     this.aceptar = function() {
         if (!this.creating) {
             Paises.remove(this.paisSeleccionado, function() {
@@ -76,6 +76,7 @@ carmenSandiegoApp.controller('PaisesCtrl', function (Paises) {
     };
 
     // QUITAR FEATURE
+    // TODO: refactorizar este for, se repite 3 veces
     this.removeFeature = function(feature) {
         var temp = new Array();   
         for ( var i = 0; i < this.paisSeleccionado.features.length; i++ ) {
@@ -88,12 +89,12 @@ carmenSandiegoApp.controller('PaisesCtrl', function (Paises) {
 
     // AGREGAR FEATURE
     this.new_feature = "";
-
     this.addFeature = function() {
         this.paisSeleccionado.features.push(this.new_feature);
     };
 
     // QUITAR CONEXION
+    // TODO: refactorizar este for, se repite 3 veces
     this.removeConnection = function(conn) {
         var temp = new Array();   
         for ( var i = 0; i < this.paisSeleccionado.connectedCountries.length; i++ ) {
@@ -106,12 +107,12 @@ carmenSandiegoApp.controller('PaisesCtrl', function (Paises) {
 
     // AGREGAR CONEXION
     this.selectedConn = this.paises[0];
-
     this.addConnection = function() {
         this.paisSeleccionado.connectedCountries.push(this.selectedConn);
     }
 
     // QUITAR LUGAR
+    // TODO: refactorizar este for, se repite 3 veces
     this.removePlace = function(place) {
         var temp = new Array();   
         for ( var i = 0; i < this.paisSeleccionado.places.length; i++ ) {
