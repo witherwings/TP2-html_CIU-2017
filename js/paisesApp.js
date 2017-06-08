@@ -42,6 +42,19 @@ carmenSandiegoApp.controller('PaisesCtrl', function (Paises) {
         });
     }; 
 
+    // MODIFICAR PAIS (PUT) 
+    this.updateCountry = function(country) {
+        bootbox.confirm(
+            "¿Está seguro de modificar: '" + country.name + "'?", 
+            function(conf) {
+                if (conf) {
+                    Paises.update(country);
+                }
+            }
+        );
+        this.paisSeleccionado = Paises.get({},{'id': country.id});
+    };
+
     // NUEVO PAIS
     this.newPais = function() {
         var newc = {
@@ -57,21 +70,17 @@ carmenSandiegoApp.controller('PaisesCtrl', function (Paises) {
     
     // VER DETALLE
     this.verDetallePais = function(id) {
-        //this.paisSeleccionado = pais;
         this.paisSeleccionado = Paises.get({},{'id': id});
     };
 
     // MODIFICAR
-    // TODO: cambiar por metodo PUT
     this.aceptar = function() {
-        if (!this.creating) {
-            Paises.remove(this.paisSeleccionado, function() {
-                self.messageNotify('Pais eliminado!');
-                self.updateList();
-            }, errorHandler);
+        if (this.creating) {
+            this.newCountry = this.paisSeleccionado;
+            this.createCountry();
+        } else {
+            this.updateCountry(this.paisSeleccionado);
         }
-        this.newCountry = this.paisSeleccionado;
-        this.createCountry();
     };
 
     // QUITAR FEATURE
