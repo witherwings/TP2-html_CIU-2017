@@ -124,14 +124,14 @@
                       <select class="form-control" ng-model="paises.selectedPlace" ng-options="item for item in paises.places">
                       </select>
                       <div class="input-group-btn">
-                        <a ui-sref="worldMapEditing({id: paises.paisSeleccionado.id})" class="btn btn-primary" data-ng-click="paises.addPlace()">
+                        <button type="submit" class="btn btn-primary" data-ng-click="paises.addPlace()">
                           <span class="glyphicon glyphicon-plus"></span>
-                        </a>
+                        </button>
                       </div>
                     </div>
                       <a ui-sref="worldMap" class="btn btn-primary" data-ng-click="paises.aceptar()">
                         Aceptar
-                    </a>
+                      </a>
                 </div>
             </form>
             </div>

@@ -95,13 +95,52 @@ carmenSandiegoApp.controller('PaisesCtrl', function (Paises) {
 
     // MODIFICAR
     this.aceptar = function() {
-        if (this.creating) {
-            this.newCountry = this.paisSeleccionado;
-            this.createCountry();
-        } else {
-            this.updateCountry(this.paisSeleccionado);
+        if (this.validateOK(this.paisSeleccionado)) {
+            if (this.creating) {
+                this.newCountry = this.paisSeleccionado;
+                this.createCountry();
+            } else {
+                this.updateCountry(this.paisSeleccionado);
+            }
         }
     };
+
+    this.validateOK = function(pais) {
+        return this.nameOK(pais) && this.featuresOK(pais) && 
+            this.connectionsOK(pais) && this.placesOK(pais);
+    };
+
+    this.nameOK = function(pais) {
+        if (pais.name != "") 
+            return true; 
+        else 
+            bootbox.alert("Nombre invalido!");
+        return false;
+    }
+
+    this.placesOK = function(pais) {
+        if (pais.places.length == 3) 
+            return true; 
+        else 
+            bootbox.alert("El pais debe tener 3 lugares!");
+        return false;
+    }
+
+    this.connectionsOK = function(pais) {
+        if (pais.connectedCountries.length > 0) 
+            return true; 
+        else 
+            bootbox.alert("El pais debe tener conexiones!");
+        return false;
+    }
+
+    this.featuresOK = function(pais) {
+        if (pais.features.length > 0) 
+            return true; 
+        else 
+            bootbox.alert("El pais debe tener caracteristicas!");
+        return false;
+    }
 
     // QUITAR FEATURE
     this.removeFeature = function(feature) {
