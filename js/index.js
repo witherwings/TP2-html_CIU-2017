@@ -10,9 +10,9 @@ function toggle(){
 }
 
 function showId(e) {
-	$(e).show("slow");
+	//$(e).show("slow");
 }
 
 function hideId(e) {
-	$(e).hide("slow"); 
+	//$(e).hide("slow"); 
 }

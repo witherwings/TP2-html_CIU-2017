@@ -1,5 +1,5 @@
 
-        <div class="col-md-10 col-md-offset-1">
+        <div ng-init="paises.setShowEditZone();" class="col-md-10 col-md-offset-1">
           <h1>
             <strong>
               <p>Mapamundi</p>
@@ -17,7 +17,7 @@
                 <tr data-ng-repeat="pais in paises.paises" class="animate-repeat">
                   <td>{{pais.name}}</td>
                   <td>
-                    <a ui-sref="worldMapEditing({id: pais.id})" class="btn btn-default" onclick="showId('#div_details_pais');" data-ng-click="paises.verDetallePais(pais.id)">
+                    <a ui-sref="worldMapEditing({id: pais.id})" class="btn btn-default" data-ng-click="paises.showEditZone = true; paises.verDetallePais(pais.id);">
                     <span class="glyphicon glyphicon-pencil"></span>
                     </a>
                     <a ui-sref="worldMap" class="btn btn-default" data-ng-click="paises.deleteCountryById(pais);">
@@ -27,13 +27,13 @@
                 </tr>
               </tbody>
             </table>
-            <button type="submit" class="btn btn-primary" data-ng-click="paises.newPais()" onclick="showId('#div_details_pais');">
+            <button type="submit" class="btn btn-primary" data-ng-click="paises.newPais()">
               Nuevo
             </button>
           </div>
           <div class="col-md-5">
 
-            <div class="panel panel-default" id="div_details_pais" style="display:none">
+            <div class="panel panel-default" ng-show="paises.showEditZone || paises.creating">
                 <div class="panel-body">
                   <form>
                     <div class="form-group">
@@ -129,7 +129,7 @@
                         </a>
                       </div>
                     </div>
-                      <a ui-sref="worldMap" class="btn btn-primary" onclick="hideId('#div_details_pais');" data-ng-click="paises.aceptar()">
+                      <a ui-sref="worldMap" class="btn btn-primary" data-ng-click="paises.aceptar()">
                         Aceptar
                     </a>
                 </div>

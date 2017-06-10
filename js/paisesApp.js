@@ -7,10 +7,24 @@ carmenSandiegoApp.controller('PaisesCtrl', function (Paises) {
     self.places = ["Embajada", "Banco", "Club", "Biblioteca"];
     self.creating = false;
     this.paisSeleccionado = null;
+    this.showEditZone = false;
 
 	function errorHandler(error) {
         self.notifyError(error.data);
     }
+
+    this.setShowEditZone = function() {
+        var href = window.location.href;
+        var parm = href.split('/')[href.split('/').length - 1];
+        if (this.isNumber(parm)) {
+            this.showEditZone = true;
+            this.verDetallePais(parm);
+        }
+    };
+
+    this.isNumber = function (n) {
+        return !isNaN(parseFloat(n)) && isFinite(n);
+    };
 
 	this.updateList = function() {
         Paises.query(function(data) {
@@ -76,6 +90,7 @@ carmenSandiegoApp.controller('PaisesCtrl', function (Paises) {
     // VER DETALLE
     this.verDetallePais = function(id) {
         this.paisSeleccionado = Paises.get({},{'id': id});
+        this.showEditZone = true;
     };
 
     // MODIFICAR
